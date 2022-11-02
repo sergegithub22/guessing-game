@@ -1,4 +1,3 @@
-
 var inputNumber = document.querySelector(".main-input");
 var resultArea = document.querySelector(".info");
 var tryesQuantity = document.querySelector(".tryes-quantity");
