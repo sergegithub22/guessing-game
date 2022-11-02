@@ -23,6 +23,26 @@ body {
   box-sizing: border-box;
 }
 
+.link {
+  font-family: "Goldman", Sans-Serif;
+  text-decoration: none;
+  color: #7240FF;
+  font-size: 20px;
+}
+.link:hover {
+  color: white;
+}
+
+.sections__header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 21px;
+  font-family: "Orbitron", Sans-Serif;
+  color: #00c2cc;
+  text-transform: uppercase;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -42,19 +62,6 @@ body {
   font-weight: 900;
 }
 
-.counter-header-text {
-  font-family: "Orbitron", Sans-Serif;
-  font-size: 25px;
-  color: #00787E;
-  font-weight: 900;
-}
-
-.counter-score, .counter-percent {
-  font-family: "Orbitron", Sans-Serif;
-  font-size: 25px;
-  font-weight: 900;
-}
-
 .text--blue {
   color: #4d97ff;
 }
@@ -71,14 +78,11 @@ body {
   font-size: 20px;
 }
 
-.link {
-  font-family: "Goldman", Sans-Serif;
-  text-decoration: none;
-  color: #7240FF;
-  font-size: 20px;
-}
-.link:hover {
-  color: white;
+.counter-header-text {
+  font-family: "Orbitron", Sans-Serif;
+  font-size: 25px;
+  color: #00787E;
+  font-weight: 900;
 }
 
 .header {
@@ -133,6 +137,29 @@ body {
   box-shadow: 0px 0px 13px #002252;
 }
 
+.game {
+  padding: 40px;
+  background-color: black;
+  border-radius: 30px;
+  border: 3px solid #002252;
+  box-shadow: 0px 0px 13px #002252;
+}
+
+.game-items {
+  display: grid;
+  grid-gap: 40px;
+  padding-top: 10px;
+}
+
+.game__item {
+  display: grid;
+  grid-template-rows: auto;
+  align-items: center;
+  grid-gap: 20px;
+  padding: 10px;
+  background-color: black;
+}
+
 .main-input {
   width: 100%;
   font-family: "Goldman", Sans-Serif;
@@ -154,6 +181,44 @@ body {
 
 .main-input::placeholder {
   color: #0B1326;
+}
+
+.game__links {
+  height: 100%;
+  display: grid;
+  align-content: space-around;
+}
+
+.game__links a {
+  height: 48px;
+}
+
+.button {
+  text-align: center;
+  font-family: "Goldman", Sans-Serif;
+  font-size: 38px;
+  padding: 10px;
+  background-color: black;
+  border: 3px solid #002251;
+  border-radius: 15px;
+  box-shadow: 0px 0px 3px #0058D3;
+  color: #388BFF;
+  transition-property: box-shadow, border, color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  text-decoration: none;
+  font-weight: 900;
+}
+.button:hover {
+  box-shadow: 0px 0px 18px #5B0000;
+  transition-duration: 0s;
+  border: 3px solid #5B0000;
+}
+.button:active {
+  box-shadow: 0px 0px 38px #FF000;
+  transition-duration: 0s;
+  color: white;
+  border: 3px solid #5B0000;
 }
 
 .info {
@@ -192,65 +257,16 @@ body {
   font-size: 48px;
 }
 
-.game {
-  padding: 40px;
-  background-color: black;
-  border-radius: 30px;
-  border: 3px solid #002252;
-  box-shadow: 0px 0px 13px #002252;
-}
-
-.game-items {
-  display: grid;
-  grid-gap: 40px;
-  padding-top: 10px;
-}
-
-.game__item {
-  display: grid;
-  grid-template-rows: auto;
-  align-items: center;
-  grid-gap: 20px;
-  padding: 10px;
-  background-color: black;
+.counter-score, .counter-percent {
+  font-family: "Orbitron", Sans-Serif;
+  font-size: 25px;
+  font-weight: 900;
 }
 
 .guess-percents, .guess-score {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-}
-
-.button {
-  text-align: center;
-  font-family: "Goldman", Sans-Serif;
-  font-size: 38px;
-  padding: 10px;
-  background-color: black;
-  border: 3px solid #002251;
-  border-radius: 15px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
-  transition-property: box-shadow, border, color;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
-  text-decoration: none;
-  font-weight: 900;
-}
-.button:hover {
-  box-shadow: 0px 0px 18px #5B0000;
-  transition-duration: 0s;
-  border: 3px solid #5B0000;
-}
-.button:active {
-  box-shadow: 0px 0px 38px #FF000;
-  transition-duration: 0s;
-  color: white;
-  border: 3px solid #5B0000;
-}
-
-.item__description {
-  text-align: center;
 }
 
 .game__links {
@@ -261,16 +277,6 @@ body {
 
 .game__links a {
   height: 48px;
-}
-
-.sections__header, .about__header {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  text-align: center;
-  font-size: 21px;
-  font-family: "Orbitron", Sans-Serif;
-  color: #00c2cc;
-  text-transform: uppercase;
 }
 
 .uppercase {
