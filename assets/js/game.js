@@ -1,6 +1,7 @@
 var inputNumber = document.querySelector(".main-input");
 var resultArea = document.querySelector(".info");
-var tryesQuantity = document.querySelector(".tryes-quantity");
+var tryesQuantity = document.querySelector(".counter-quantity");
+var totalTryesQuantity = document.querySelector(".counter-total-quantity");
 var percentsArea = document.querySelector(".counter-percent");
 var score = document.querySelector(".counter-score");
 var button = document.querySelector(".button");
@@ -14,18 +15,18 @@ var clearTrig = 0
 
 
 start()
-console.log(tryesQuantity.value)
+console.log(tryesQuantity.textContent)
 function game(evt) {
   if (clearTrig === 1){
     sessionTryes = 0
     clearTrig = 0
-    tryesQuantity.value = tryesQuantity.value.toString() 
+    tryesQuantity.textContent = tryesQuantity.textContent.toString() 
   } 
   console.log(random)
   if (parseInt(inputNumber.value) === random) {guessNumber()}
   else {noneGuessNumber()}
   calcPersents()
-  console.log(tryesQuantity.value)
+  console.log(tryesQuantity.textContent)
 
 }
 
@@ -36,6 +37,8 @@ button.addEventListener("click", game);
 
 
 function start() {
+  totalTryesQuantity.textContent = 0
+  tryesQuantity.textContent = 0
   percentsArea.textContent = 0
   score.textContent = 4
   sessionTryes = 0
@@ -47,9 +50,10 @@ function guessNumber() {
   trying = trying + 1
   guess = guess + 1
   sessionTryes = sessionTryes + 1
-  tryesQuantity.value = 'Attempts:' + '\t' +  sessionTryes.toString()
+  tryesQuantity.textContent = sessionTryes.toString()
+  totalTryesQuantity.textContent = trying.toString()
   score.textContent  = parseInt(score.textContent, 10) + 3
-  resultArea.value = 'You guess. New rnd is ready'
+  resultArea.value = 'You guessed.' + '\n' + 'New rnd is ready'
   inputNumber.value = ' '
   clearTrig = 1
   random = randomNumber()
@@ -58,13 +62,14 @@ function noneGuessNumber() {
   trying = trying + 1
   miss = miss + 1
   sessionTryes = sessionTryes + 1
-  tryesQuantity.value = 'Attempts:' + '\t' + sessionTryes.toString()
+  tryesQuantity.textContent = sessionTryes.toString()
+  totalTryesQuantity.textContent = trying.toString()
   score.textContent  = parseInt(score.textContent, 10) - 1
   if (parseInt(inputNumber.value) < random ){
-    resultArea.value = 'Result:' + '\t' + 'Too low'
+    resultArea.value = 'Too low'
   }
   if (parseInt(inputNumber.value) > random ) {
-    resultArea.value = 'Result:' + '\t' + 'Too big'
+    resultArea.value = 'Too high'
   }
 }
 function calcPersents() {

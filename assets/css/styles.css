@@ -71,7 +71,7 @@ body {
 }
 
 .text--violet {
-  color: #800150;
+  color: #78B0FF;
 }
 
 .font-size-20px {
@@ -79,7 +79,7 @@ body {
 }
 
 .counter-header-text {
-  font-family: "Orbitron", Sans-Serif;
+  font-family: "Goldman", Sans-Serif;
   font-size: 25px;
   color: #00787E;
   font-weight: 900;
@@ -221,12 +221,18 @@ body {
   border: 3px solid #5B0000;
 }
 
+.resul-header {
+  display: block;
+  font-family: "Goldman", Sans-Serif;
+  font-size: 28px;
+  text-align: center;
+}
+
 .info {
   width: 100%;
   font-family: "Goldman", Sans-Serif;
   background-color: black;
   border: none;
-  border-radius: 15px;
   color: #388BFF;
   resize: none;
   font-size: 25px;
@@ -236,19 +242,9 @@ body {
   border: none;
 }
 
-.tryes-quantity {
-  width: 100%;
-  font-family: "Goldman", Sans-Serif;
-  background-color: black;
-  border: none;
-  border-radius: 15px;
-  color: #388BFF;
-  resize: none;
-  font-size: 25px;
-}
-.tryes-quantity:focus {
-  outline: none;
-  border: none;
+.statistic-area {
+  display: grid;
+  grid-row-gap: 10px;
 }
 
 .main-label {
@@ -257,13 +253,13 @@ body {
   font-size: 48px;
 }
 
-.counter-score, .counter-percent {
+.counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
   font-family: "Orbitron", Sans-Serif;
   font-size: 25px;
   font-weight: 900;
 }
 
-.guess-percents, .guess-score {
+.guess-percents, .guess-score, .tryes-quantity, .total-tryes-quantity {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -291,7 +287,7 @@ body {
 
 @media (min-width: 1950px) {
   .main {
-    max-width: 1950px;
+    max-width: 600px;
   }
 }
 @media (max-width: 1570px) and (min-width: 1180px) {
