@@ -27,14 +27,9 @@ function game(evt) {
   else {noneGuessNumber()}
   calcPersents()
   console.log(tryesQuantity.textContent)
-
 }
 
-
-
-
 button.addEventListener("click", game);
-
 
 function start() {
   totalTryesQuantity.textContent = 0

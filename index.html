@@ -37,18 +37,64 @@
         </section>
       </section>
       
-      <section class="game"> 
+      <section class="game visually-hidden"> 
         <h2 class="sections__header">game</h2>
         <section class="game-items">
           <article class="game__item">
             <label class="visually-hidden" for="header_search">Enter number:</label>
-						<input class="main-input" name="header_search" id="header_search" type="text"/>
+						<input class="main-input" name="Main input" id="main input" type="text"/>
             <div class="game__links">
               <button class="button" type="submit" title="">Compare</button>
             </div>
             <section class="message-area">
               <span class="resul-header text--blue">Result:</span>
               <textarea class="info" name="Messages" id="message" placeholder="Game messages" type="text" readonly> </textarea>
+              
+            </section>
+            <section class="statistic-area">
+              <div class="tryes-quantity">
+                <span class="counter-header-text">Attempts</span>
+                <span class="counter-quantity text--violet"></span>
+              </div>
+              <div class="total-tryes-quantity">
+                <span class="counter-header-text">Total Attempts</span>
+                <span class="counter-total-quantity text--violet">0</span>
+              </div>
+              <div class="guess-score">
+                <span class="counter-header-text">Score</span>
+                <span class="counter-score text--violet"></span>
+              </div>
+              <div class="guess-percents">
+                <span class="counter-header-text">Guesses</span>
+                <span class="counter-percent text--violet"></span>
+              </div>
+            </section>
+          </article>
+        </section>
+      </section>
+      <section class="mobile-game"> 
+        <h2 class="sections__header">game</h2>
+        <section class="game-items">
+          <article class="game__item">
+            <label class="visually-hidden" for="header_search">Enter number:</label>
+						<input class="main-input" name="Mobile main input" id="mobile main input" type="text"/>
+            <section class="game__numbers-section">
+              <button class="button-number">0</button>
+              <button class="button-number">1</button>
+              <button class="button-number">2</button>
+              <button class="button-number">3</button>
+              <button class="button-number">4</button>
+              <button class="button-number">5</button>
+              <button class="button-number">6</button>
+              <button class="button-number">7</button>
+              <button class="button-number">8</button>
+              <button class="button-number">9</button>
+              <button class="button-del">Del</button>
+              <button class="button-enter">Enter</button>
+            </section>
+            <section class="message-area">
+              <span class="resul-header text--blue">Result:</span>
+              <textarea class="info" name="Mobile messages" id="mobile message" placeholder="Game messages" type="text" readonly> </textarea>
               
             </section>
             <section class="statistic-area">
