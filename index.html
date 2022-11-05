@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guessing game</title>
-<link rel="stylesheet" type="text/css" href="sass/styles.scss" />
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
 </head>
@@ -25,13 +24,15 @@
     <main class="main">
       <section class="rules">
         <section class="about">
-          <h2 class="sections__header">rules</h2>
-<!--          <p><img class="my-foto" src="assets/images/me.jpg" alt="Image1"  ></p>-->
+          <h2 class="sections__header">description</h2>
           <div class="">
             <p class="red visually-hidden">To play this game you must turn on JavaScript option in your browser</p>
-            <p class="text text--blue ">In this game you have to guess a number which was given randomly. Range from 0 to 10 include 0 and 10.</p>
-            <p class="text text--blue ">If you guess - collect the score equal 4. For miss - minus 1 score. You begin with 10 score</p>
-            <p class="text text--blue ">Also in this game present a counter percents guessing. Click on relevant button to now it</p>
+            <p class=" text--blue ">In this game you have to guess a number which was given randomly. Range from 0 to 10 inclusively.</p>
+            <p class=" text--blue "><span class="">How to play:</span><br>
+              Enter a number from 0 to 10 inclusively by screen keyboard, then press button "Compare". Result you will see in field "Result".  
+            </p>
+            <p class=" text--blue ">If you guess - collect the score equal 4. For miss - minus 1 score. You begin with 4 scores</p>
+            <p class=" text--blue ">In this game present a counters: round attempts, total attempts, scores and percents guessing.</p>
             <a class="link" href="https://github.com/sergegithub22" target="_blank" title="Open my profile on GitHub in a new tab">Hide Rules</a>
           </div>
         </section>
@@ -77,27 +78,27 @@
         <section class="game-items">
           <article class="game__item">
             <label class="visually-hidden" for="header_search">Enter number:</label>
-						<input class="main-input" name="Mobile main input" id="mobile main input" type="text"/>
+						<input class="mobile-main-input" name="Mobile main input" id="mobile main input" type="text"/>
             <section class="game__numbers-section">
-              <button class="button-number">0</button>
-              <button class="button-number">1</button>
-              <button class="button-number">2</button>
-              <button class="button-number">3</button>
-              <button class="button-number">4</button>
-              <button class="button-number">5</button>
-              <button class="button-number">6</button>
-              <button class="button-number">7</button>
-              <button class="button-number">8</button>
-              <button class="button-number">9</button>
-              <button class="button-del">Del</button>
-              <button class="button-enter">Enter</button>
+              <button class="button-keyboard button-number" id="n0">0</button>
+              <button class="button-keyboard button-number" id="n1">1</button>
+              <button class="button-keyboard button-number" id="n2">2</button>
+              <button class="button-keyboard button-number" id="n3">3</button>
+              <button class="button-keyboard button-number" id="n4">4</button>
+              <button class="button-keyboard button-number" id="n5">5</button>
+              <button class="button-keyboard button-number" id="n6">6</button>
+              <button class="button-keyboard button-number" id="n7">7</button>
+              <button class="button-keyboard button-number" id="n8">8</button>
+              <button class="button-keyboard button-number" id="n9">9</button>
+              <button class="button-keyboard button-del">Del</button>
+              <button class="button-keyboard button-enter">Compare</button>
             </section>
             <section class="message-area">
               <span class="resul-header text--blue">Result:</span>
               <textarea class="info" name="Mobile messages" id="mobile message" placeholder="Game messages" type="text" readonly> </textarea>
               
             </section>
-            <section class="statistic-area">
+            <section class="mobile-statistic-area">
               <div class="tryes-quantity">
                 <span class="counter-header-text">Attempts</span>
                 <span class="counter-quantity text--violet"></span>
@@ -123,6 +124,6 @@
   </section>
 </div>    
 </body>
-<script type="text/javascript" src="js/game.js"></script>
+<script type="text/javascript" src="assets/js/game.js"></script>
 <!--<script type="text/javascript" src="../gulpfile.js"></script>-->
 </html>
