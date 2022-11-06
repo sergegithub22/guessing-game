@@ -79,7 +79,7 @@ function guessNumber() {
   }
  
   for ( r = resultArea.length - 1; r >= 0; r--) {
-    resultArea[r].value = 'You guessed.' + '\n' + 'New rnd is ready'
+    resultArea[r].value = 'You guessed.' + '\n' +  'Random number was: ' + random + '\n' + 'New rnd is ready' 
   }
   for ( s = score.length - 1; s >= 0; s--) {
     score[s].textContent  = parseInt(score[0].textContent, 10) + 3

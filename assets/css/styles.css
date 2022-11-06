@@ -239,6 +239,7 @@ body {
   color: #388BFF;
   resize: none;
   font-size: 25px;
+  height: 80px;
 }
 .info:focus {
   outline: none;
