@@ -27,7 +27,6 @@ body {
   font-family: "Goldman", Sans-Serif;
   text-decoration: none;
   color: #7240FF;
-  font-size: 20px;
 }
 .link:hover {
   color: white;
@@ -225,7 +224,7 @@ body {
   border: 3px solid #5B0000;
 }
 
-.resul-header {
+.result-header {
   display: block;
   font-family: "Goldman", Sans-Serif;
   font-size: 28px;
@@ -279,6 +278,12 @@ body {
   height: 48px;
 }
 
+.rules {
+  font-family: "FiraSansExtraCondensed", Sans-Serif;
+  font-size: 22px;
+  font-weight: 900;
+}
+
 .mobile-game {
   padding: 40px;
   background-color: black;
@@ -307,6 +312,10 @@ body {
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
   font-size: 30px;
+}
+.mobile-main-input:focus {
+  outline: none;
+  border: 3px solid #003681;
 }
 
 .button-number {
@@ -567,5 +576,16 @@ body {
   .button-enter:active, .button-del:active {
     color: white;
     border: 3px solid white;
+  }
+  .info {
+    font-size: 20px;
+  }
+  .counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
+    font-family: "Orbitron", Sans-Serif;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .counter-header-text {
+    font-size: 20px;
   }
 }

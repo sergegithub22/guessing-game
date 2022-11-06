@@ -24,7 +24,7 @@ var tQ = 0
 start()
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
     keyBoardsPull[i].addEventListener("click", useKeyboard);}
-
+button.addEventListener("click", game);
 
 
 
@@ -38,13 +38,12 @@ function game() {
   if (parseInt(inputNumber.value) || parseInt(mobileInputNumber.value) === random) {guessNumber()}
   else {noneGuessNumber()}
   calcPersents()
-
 }
 
 
 
 
-button.addEventListener("click", game);
+
 
 function start() {
   for ( tQ = tryesQuantity.length - 1; tQ >= 0; tQ--) {
@@ -63,9 +62,11 @@ function start() {
   }
   sessionTryes = 0
 }
+
 function randomNumber() {
   return  Math.floor(Math.random() * (11 - 1) + 1)
 }
+
 function guessNumber() {
   trying = trying + 1
   guess = guess + 1
@@ -88,6 +89,7 @@ function guessNumber() {
   clearTrig = 1
   random = randomNumber()
 }
+
 function noneGuessNumber() {
   trying = trying + 1
   miss = miss + 1
@@ -111,10 +113,10 @@ function noneGuessNumber() {
       resultArea[r].value = 'Too high'
     }
   }
-
   inputNumber.value = ' '
   mobileInputNumber.value = ' '
 }
+
 function calcPersents() {
   guessesPercents = Math.floor((guess/trying)*100)
   for ( p = percentsArea.length - 1; p >= 0; p--) {
@@ -122,6 +124,7 @@ function calcPersents() {
   }
   percentsArea.textContent = guessesPercents.toString() + '%'
 }
+
 function useKeyboard(evt) {
   if (evt.currentTarget.textContent === 'Del'){
     mobileInputNumber.value = ' '
