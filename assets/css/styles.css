@@ -66,7 +66,7 @@ body {
 }
 
 .text--blue {
-  color: #4d97ff;
+  color: #8ABBFF;
 }
 
 .text--red {
@@ -84,7 +84,7 @@ body {
 .counter-header-text {
   font-family: "Goldman", Sans-Serif;
   font-size: 25px;
-  color: #00787E;
+  color: #009DA6;
   font-weight: 900;
 }
 
@@ -308,7 +308,7 @@ body {
   border: 3px solid #002251;
   border-radius: 15px;
   box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
+  color: #description;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
@@ -328,7 +328,7 @@ body {
   border: 3px solid #002251;
   border-radius: 10px;
   box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
+  color: #7DB3FF;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
@@ -347,7 +347,7 @@ body {
   border: 3px solid #002251;
   border-radius: 10px;
   box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
+  color: #7DB3FF;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
@@ -532,7 +532,7 @@ body {
     border: 3px solid #002251;
     border-radius: 15px;
     box-shadow: 0px 0px 3px #0058D3;
-    color: #388BFF;
+    color: #7DB3FF;
     transition-property: box-shadow, border, color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
@@ -547,7 +547,7 @@ body {
     border: 3px solid #002251;
     border-radius: 10px;
     box-shadow: 0px 0px 3px #0058D3;
-    color: #388BFF;
+    color: #7DB3FF;
     transition-property: box-shadow, border, color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
@@ -565,7 +565,7 @@ body {
     border: 3px solid #002251;
     border-radius: 10px;
     box-shadow: 0px 0px 3px #0058D3;
-    color: #388BFF;
+    color: #7DB3FF;
     transition-property: box-shadow, border, color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
