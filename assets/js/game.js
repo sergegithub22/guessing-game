@@ -126,10 +126,10 @@ function calcPersents() {
 }
 
 function useKeyboard(evt) {
-  if (evt.currentTarget.textContent === 'Del'){
+  if (evt.currentTarget.id === 'del'){
     mobileInputNumber.value = ' '
   }
-  else if (evt.currentTarget.textContent === 'Compare'){
+  else if (evt.currentTarget.id === 'compare'){
     game()
     
   } 
