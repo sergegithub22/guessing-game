@@ -34,7 +34,6 @@ function game() {
     clearTrig = 0
     tryesQuantity.textContent = tryesQuantity.textContent.toString() 
   } 
-
   if (parseInt(inputNumber.value) || parseInt(mobileInputNumber.value) === random) {guessNumber()}
   else {noneGuessNumber()}
   calcPersents()
