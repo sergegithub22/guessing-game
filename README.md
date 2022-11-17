@@ -1,5 +1,5 @@
 # Guessing random number. Game. 
-In this game you have to guess a number which was given randomly. v.0.1
+In this game you have to guess a number which was given randomly. V0.1
 
 ### Rules:
  - Range from 0 to 10 inclusively
