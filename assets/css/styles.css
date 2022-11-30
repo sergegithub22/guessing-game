@@ -537,7 +537,6 @@ body {
     font-size: 18px;
   }
   .rules {
-    margin-top: 20px;
     padding: 20px;
   }
   .rules {
@@ -545,9 +544,17 @@ body {
     font-family: "FiraSansExtraCondensed", Sans-Serif;
     font-size: 15px;
     font-weight: 900;
+    padding: 7px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: perspective(500px) rotateY(180deg);
+  }
+  .about {
+    grid-area: auto;
+    padding: 0px;
+  }
+  .desc_content {
+    padding: 20px;
   }
   .mobile-game {
     position: absolute;

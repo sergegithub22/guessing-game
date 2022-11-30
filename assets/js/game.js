@@ -18,7 +18,7 @@ var AttemptsLeft
 start()
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
     keyBoardsPull[i].addEventListener("click", useKeyboard);}
-//buttonTheme.addEventListener("click", theme);
+buttonTheme.addEventListener("click", theme);
 
 function game() {
   if (newGame === 1) {
@@ -153,10 +153,10 @@ function theme() {
     sectionRules.style.boxShadow = 'gray 0px 0px 13px'
     sectionRules.style.transition = "2.5s";
     
-    sectionSettings.style.backgroundColor = 'lightgray'
-    sectionSettings.style.borderColor  = 'gray'
-    sectionSettings.style.boxShadow = 'gray 0px 0px 13px'
-    sectionSettings.style.transition = "2.5s";
+//    sectionSettings.style.backgroundColor = 'lightgray'
+//    sectionSettings.style.borderColor  = 'gray'
+//    sectionSettings.style.boxShadow = 'gray 0px 0px 13px'
+//    sectionSettings.style.transition = "2.5s";
     
     sectionGame.style.backgroundColor  = 'lightgray'
     sectionGame.style.transition = "2.5s";
@@ -184,10 +184,10 @@ function theme() {
     }
     headerHi.style.color = 'black'
     headerHi.style.transition = "2.5s";
-    headerDescription.style.color = 'black'
-    headerDescription.style.transition = "2.5s";
+//    headerDescription.style.color = 'black'
+//    headerDescription.style.transition = "2.5s";
 
-    buttonTheme.textContent = 'change to dark'
+    buttonTheme.textContent = 'dark theme'
     buttonTheme.id = 'light'
   }
   else if (buttonTheme.id === 'light') {
@@ -216,10 +216,10 @@ function theme() {
     sectionRules.style.boxShadow = '#002252 0px 0px 13px'
     sectionRules.style.transition = "2.5s";
     
-    sectionSettings.style.backgroundColor = 'black'
-    sectionSettings.style.borderColor  = '#002252'
-    sectionSettings.style.boxShadow = '#002252 0px 0px 13px'
-    sectionSettings.style.transition = "2.5s";
+//    sectionSettings.style.backgroundColor = 'black'
+//    sectionSettings.style.borderColor  = '#002252'
+//    sectionSettings.style.boxShadow = '#002252 0px 0px 13px'
+//    sectionSettings.style.transition = "2.5s";
     
     sectionGame.style.backgroundColor  = 'black'
     sectionGame.style.transition = "2.5s";
@@ -247,18 +247,19 @@ function theme() {
     }
     headerHi.style.color = '#78B0FF'
     headerHi.style.transition = "2.5s";
-    headerDescription.style.color = '#4d97ff'
-    headerDescription.style.transition = "2.5s";
+//    headerDescription.style.color = '#4d97ff'
+//    headerDescription.style.transition = "2.5s";
     
-    buttonTheme.textContent = 'change to light'
+    buttonTheme.textContent = 'light theme'
     buttonTheme.id = 'dark'
   }
 }
   
 
-var card = document.querySelector('.main');
+var card = document.querySelector('.header__hi');
+var main = document.querySelector(".main");
 card.addEventListener( 'click', function() {
-  card.classList.toggle('flipped');
+  main.classList.toggle('flipped');
 });
 
 
