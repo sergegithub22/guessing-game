@@ -1,17 +1,17 @@
 @font-face {
   font-family: "Orbitron";
   font-style: normal;
-  src: url("/assets/fonts/Orbitron-VariableFont_wght.ttf");
+  src: url("../fonts/Orbitron-VariableFont_wght.ttf");
 }
 @font-face {
   font-family: "FiraSansExtraCondensed";
   font-style: normal;
-  src: url("/assets/fonts/FiraSansExtraCondensed-Regular.ttf");
+  src: url("../fonts/FiraSansExtraCondensed-Regular.ttf");
 }
 @font-face {
   font-family: "Goldman";
   font-style: normal;
-  src: url("/assets/fonts/Goldman-Regular.ttf");
+  src: url("../fonts/Goldman-Regular.ttf");
 }
 body {
   padding: 0px;
