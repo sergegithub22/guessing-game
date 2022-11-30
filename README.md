@@ -1,10 +1,12 @@
-# Guessing random number. Game. 
-In this game you have to guess a number which was given randomly. V0.1
+# Guessing random number. Little game. 
+In this game you have to guess a number which was given randomly. v0.1
 
 ### Rules:
  - Range from 0 to 10 inclusively
- - If you guessing - collect the score equal 4. For miss - minus 1 score. You begin with 4 score
- - Also in this game present a counter percents guessing and attempts
+ - You have a 30 attempts to guess. For 0 attempts new game will starts
+ - In the field "Info" you can see current information
+ - Also, below field "Info", you can see how much attempts is left and guessing percents
+ - Themes. In section "Settings" you can set theme would you like: light or dark. Dark is default
 ### Third party assets: (thanks to all who made it :pray:)
  - 3 google free fonts
 

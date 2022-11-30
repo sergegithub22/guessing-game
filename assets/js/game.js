@@ -1,9 +1,7 @@
 var mobileInputNumber = document.querySelector(".mobile-main-input");
 var resultArea = document.querySelector(".info");
-var tryesQuantity = document.querySelector(".counter-quantity");
 var totalTryesQuantity = document.querySelector(".counter-total-quantity");
 var percentsArea = document.querySelector(".counter-percent");
-var score = document.querySelector(".counter-score");
 var keyBoardsPull = document.querySelectorAll(".button-keyboard");
 var random = randomNumber()
 var guessesPercents = 0
@@ -12,38 +10,39 @@ var sessionTryes = 0
 var guess = 0
 var miss = 0
 var clearTrig = 0
-var buttonTheme = document.querySelector("#theme")
+var buttonTheme = document.querySelector(".button-settings")
+var newGame
+var AttemptsLeft
 
 
 start()
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
     keyBoardsPull[i].addEventListener("click", useKeyboard);}
-buttonTheme.addEventListener("click", theme);
-
-
+//buttonTheme.addEventListener("click", theme);
 
 function game() {
+  if (newGame === 1) {
+    start()
+  }
   if (clearTrig === 1){
     sessionTryes = 0
-    clearTrig = 0
-    tryesQuantity.textContent = tryesQuantity.textContent.toString() 
+    clearTrig = 0 
   } 
+  
   if (parseInt(mobileInputNumber.value) === random) {guessNumber()}
   else {noneGuessNumber()}
   calcPersents()
 }
 
-
-
-
-
-
 function start() {
-  totalTryesQuantity.textContent = 0
-  tryesQuantity.textContent = 0
+  totalTryesQuantity.textContent = 30
   percentsArea.textContent  = 0
-  score.textContent  = 4
+
   sessionTryes = 0
+  trying = 0
+  AttemptsLeft = 30
+  guess = 0
+  newGame = 0
 }
 
 function randomNumber() {
@@ -54,12 +53,17 @@ function guessNumber() {
   trying = trying + 1
   guess = guess + 1
   sessionTryes = sessionTryes + 1
-  tryesQuantity.textContent  = sessionTryes.toString()
-  totalTryesQuantity.textContent  = trying.toString()
+  AttemptsLeft = AttemptsLeft - 1
+  totalTryesQuantity.textContent  = AttemptsLeft.toString()
   resultArea.value = 'You guessed.' + '\n' + 'Random number was: ' + random + '\n' + 'New rnd is ready' 
-  score.textContent  = parseInt(score.textContent, 10) + 3
+
   mobileInputNumber.value = ' '
   clearTrig = 1
+  
+  if (AttemptsLeft === 0) {
+    resultArea.value = 'You guessed.' + '\n' + 'Random number was: ' + random + '\n' + 'New game is ready'
+    newGame = 1
+  }
   random = randomNumber()
 }
 
@@ -67,20 +71,32 @@ function noneGuessNumber() {
   trying = trying + 1
   miss = miss + 1
   sessionTryes = sessionTryes + 1
-  tryesQuantity.textContent  = sessionTryes.toString()
-  totalTryesQuantity.textContent  = trying.toString()
-  score.textContent  = parseInt(score.textContent, 10) - 1
-  if (parseInt(mobileInputNumber.value) < random ){
+  AttemptsLeft = AttemptsLeft - 1
+  totalTryesQuantity.textContent  = AttemptsLeft.toString()
+
+  if (AttemptsLeft === 0) {
+    if (parseInt(mobileInputNumber.value) < random ){
+    resultArea.value = mobileInputNumber.value + ' Too low' + '\n' + 'Random number was: ' + random + '\n' + 'New game is ready'
+    }
+    if (parseInt(mobileInputNumber.value) > random ) {
+      resultArea.value = mobileInputNumber.value + ' Too high' + '\n' + 'Random number was: ' + random + '\n' + 'New game is ready'
+    }
+    newGame = 1
+  }
+  else {
+    if (parseInt(mobileInputNumber.value) < random ){
     resultArea.value = mobileInputNumber.value + ' Too low'  
+    }
+    if (parseInt(mobileInputNumber.value) > random ) {
+      resultArea.value = mobileInputNumber.value + ' Too high'
+    }
   }
-  if (parseInt(mobileInputNumber.value) > random ) {
-    resultArea.value = mobileInputNumber.value + ' Too high'
-  }
+  
   mobileInputNumber.value = ' '
 }
 
 function calcPersents() {
-  guessesPercents = Math.floor((guess/trying)*100)
+  guessesPercents = Math.round((guess/trying)*100)
   percentsArea.textContent = guessesPercents.toString() + '%'
 }
 
@@ -91,7 +107,7 @@ function useKeyboard(evt) {
   else if (evt.currentTarget.id === 'compare'){
     game() 
   } 
-  else  {
+  else if (evt.currentTarget.classList.contains('button-number')) {
     mobileInputNumber.value = mobileInputNumber.value + evt.currentTarget.textContent
   }
 }
@@ -112,7 +128,7 @@ function theme() {
   var countersText = document.querySelectorAll(".text--violet");
   
   
-  if (buttonTheme.textContent === 'change to light'){
+  if (buttonTheme.id === 'dark'){
     body.style.backgroundColor = 'lightgray'
     body.style.transition = "2.5s";
     
@@ -131,9 +147,7 @@ function theme() {
     for (var ct = countersText.length - 1; ct >= 0; ct--){
       countersText[ct].style.color = '#0064f0'
       countersText[ct].style.transition = "2.5s";
-    }
-    
-    
+    }    
     sectionRules.style.backgroundColor = 'lightgray'
     sectionRules.style.borderColor  = 'gray'
     sectionRules.style.boxShadow = 'gray 0px 0px 13px'
@@ -152,7 +166,6 @@ function theme() {
     sectionGameItem.style.boxShadow = 'gray 0px 0px 13px'
     sectionGameItem.style.transition = "2.5s";
     
-    
     input.style.borderColor  = 'gray'
     input.style.backgroundColor = 'lightgray'
     input.style.boxShadow = 'gray 0px 0px 4px'
@@ -168,34 +181,32 @@ function theme() {
       buttonNumber[bn].style.borderColor = 'gray';
       buttonNumber[bn].style.boxShadow = 'gray 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
-      
     }
-    
     headerHi.style.color = 'black'
     headerHi.style.transition = "2.5s";
     headerDescription.style.color = 'black'
     headerDescription.style.transition = "2.5s";
-    
+
     buttonTheme.textContent = 'change to dark'
-    
+    buttonTheme.id = 'light'
   }
-  else if (buttonTheme.textContent === 'change to dark') {
+  else if (buttonTheme.id === 'light') {
     body.style.backgroundColor = '#000C17'
     body.style.transition = "2.5s";
     
-    for (var txt = text.length - 1; txt >= 0; txt--){
+    for (txt = text.length - 1; txt >= 0; txt--){
       text[txt].style.color = '#78B0FF'
       text[txt].style.transition = "2.5s";
     }
-    for (var htxt = headersText.length - 1; htxt >= 0; htxt--){
+    for (htxt = headersText.length - 1; htxt >= 0; htxt--){
       headersText[htxt].style.color = '#009DA6'
       headersText[htxt].style.transition = "2.5s";
     }
-    for (var chtxt = countersHeaderText.length - 1; chtxt >= 0; chtxt--){
+    for (chtxt = countersHeaderText.length - 1; chtxt >= 0; chtxt--){
       countersHeaderText[chtxt].style.color = '#009DA6'
       countersHeaderText[chtxt].style.transition = "2.5s";
     }
-    for (var ct = countersText.length - 1; ct >= 0; ct--){
+    for (ct = countersText.length - 1; ct >= 0; ct--){
       countersText[ct].style.color = '#78B0FF'
       countersText[ct].style.transition = "2.5s";
     }
@@ -218,7 +229,6 @@ function theme() {
     sectionGameItem.style.boxShadow = '#002252 0px 0px 13px'
     sectionGameItem.style.transition = "2.5s";
     
-    
     input.style.borderColor  = '#002252'
     input.style.backgroundColor = 'black'
     input.style.boxShadow = '#002252 0px 0px 4px'
@@ -228,25 +238,49 @@ function theme() {
     info.style.backgroundColor = 'black'
     info.style.color = '#0053c7'
     info.style.transition = "2.5s";
-    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
+    for (bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].style.backgroundColor = "black";
       buttonNumber[bn].style.color = "#388BFF";
       buttonNumber[bn].style.borderColor = '#002252';
       buttonNumber[bn].style.boxShadow = '#002252 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
-      
     }
-    
     headerHi.style.color = '#78B0FF'
     headerHi.style.transition = "2.5s";
     headerDescription.style.color = '#4d97ff'
     headerDescription.style.transition = "2.5s";
     
     buttonTheme.textContent = 'change to light'
+    buttonTheme.id = 'dark'
   }
 }
   
 
+var card = document.querySelector('.main');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('flipped');
+});
+
+
+
+
+//$( ".sections__header" ).click(function() {
+//  $( ".rules" ).animate({
+//    
+//  }, 300, function() {
+//    $( ".rules" ).addClass("visually-hidden")
+//  } );
+//});
+
+
+
+
+
+
+
+//$( ".sections__header" ).click(function() {
+//  $( ".rules" ).slideToggle( "slow" );
+//});
 
 
 

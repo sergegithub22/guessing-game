@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guessing game</title>
+<link rel="stylesheet" type="text/css" href="sass/styles.scss" />
 <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
 </head>
@@ -16,7 +17,7 @@
       </section>
       <section class="header__center">
         <h1 class="header__hi">number guessing game</h1>
-        <h1 class="header__description"> read, please, <a class="link" href="#description"title="description">description</a> before start</h1>
+<!--        <h1 class="header__description"> read, please, <a class="link" href="#description"title="description">description</a> before start</h1>-->
       </section>
       <section class="header__right">
       </section>
@@ -25,26 +26,33 @@
       <section class="rules">
         <section class="about">
           <h2 class="sections__header">description</h2><a name="description"></a>
-          <div class="">
+          <div class="desc_content">
             <p class="red visually-hidden">To play this game you must turn on JavaScript option in your browser</p>
             <p class=" text--blue ">In this game you have to guess a number which was given randomly. Range from 0 to 10 inclusively.</p>
+            <p class=" text--blue ">Game interface comprises (from top to below): Header "Game", header "Info", information field, advancer information (attempts left, guesses), entry field, screen keyboard  </p>
             <p class=" text--blue "><span class="">How to play:</span><br>
-              Enter a number from 0 to 10 inclusively by screen keyboard, then press button "Compare". Result you will see in field "Result".  
+              Enter a number from 0 to 10 inclusively by screen keyboard, then press button "Compare". Result you will see in information field. For clear   entry field press button "Del"  
             </p>
-            <p class=" text--blue ">If you guess - collect the score equal 4. For miss - minus 1 score. You begin with 4 scores</p>
-            <p class=" text--blue ">In this game present a counters: round attempts, total attempts, scores and percents guessing.</p>
+            <p class=" text--blue ">You have a 30 attempts to guess. For 0 attempts new game will starts</p>
+            <p class=" text--blue ">In the information field you can see current information</p>
+            <p class=" text--blue ">Also, below information field, you can see how much attempts is left and guessing percents</p>
+            <p class=" text--blue ">Themes. In section "Settings" you can set theme would you like: light or dark. Dark is default </p>
+            
             
           </div>
+          
         </section>
       </section>
+<!--
       <section class="settings">
         
           <h2 class="sections__header">settings</h2>
-          <p class=" text--blue ">Theme:<button class="button-settings" id="theme">change to light</button></p>
+          <p class=" text--blue ">Theme:<button class="button-settings" id="dark">change to light</button></p>
           
            
         
       </section>
+-->
       
 
       <section class="mobile-game"> 
@@ -52,22 +60,14 @@
         <section class="game-items">
           <article class="game__item">
             <section class="message-area">
-              <span class="result-header text--blue">Result:</span>
+              <span class="result-header text--blue">Info:</span>
               <textarea class="info" name="Mobile messages" id="mobile message" placeholder="Game messages" type="text" readonly> </textarea>
               
             </section>
             <section class="mobile-statistic-area">
-              <div class="tryes-quantity">
-                <span class="counter-header-text">Attempts</span>
-                <span class="counter-quantity text--violet"></span>
-              </div>
               <div class="total-tryes-quantity">
-                <span class="counter-header-text">Total Attempts</span>
+                <span class="counter-header-text">Attempts left</span>
                 <span class="counter-total-quantity text--violet">0</span>
-              </div>
-              <div class="guess-score">
-                <span class="counter-header-text">Score</span>
-                <span class="counter-score text--violet"></span>
               </div>
               <div class="guess-percents">
                 <span class="counter-header-text">Guesses</span>
@@ -99,6 +99,8 @@
   </section>
 </div>    
 </body>
-<script type="text/javascript" src="assets/js/game.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+ <script type="text/javascript" src="js/game.js"></script>
+ 
 
 </html>
