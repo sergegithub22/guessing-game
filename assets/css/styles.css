@@ -59,6 +59,19 @@ body {
   overflow: hidden;
 }
 
+.button-theme {
+  font-family: "Goldman", Sans-Serif;
+  text-decoration: none;
+  color: #8438FF;
+  font-size: 21px;
+  background-color: inherit;
+  border: none;
+  text-transform: uppercase;
+}
+.button-theme:hover {
+  color: white;
+}
+
 .button-settings {
   font-family: "Goldman", Sans-Serif;
   text-decoration: none;
@@ -106,6 +119,10 @@ body {
   grid-template-columns: 1fr 2fr 1fr;
   border-bottom: 3px solid #78B0FF;
   box-shadow: 0px 0px 8px #78B0FF;
+}
+
+.header__center {
+  text-align: center;
 }
 
 .header__hi {

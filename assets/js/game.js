@@ -10,7 +10,7 @@ var sessionTryes = 0
 var guess = 0
 var miss = 0
 var clearTrig = 0
-var buttonTheme = document.querySelector(".button-settings")
+var buttonTheme = document.querySelector(".button-theme")
 var newGame
 var AttemptsLeft
 
@@ -182,8 +182,8 @@ function theme() {
       buttonNumber[bn].style.boxShadow = 'gray 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
     }
-    headerHi.style.color = 'black'
-    headerHi.style.transition = "2.5s";
+//    headerHi.style.color = 'black'
+//    headerHi.style.transition = "2.5s";
 //    headerDescription.style.color = 'black'
 //    headerDescription.style.transition = "2.5s";
 
@@ -245,8 +245,8 @@ function theme() {
       buttonNumber[bn].style.boxShadow = '#002252 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
     }
-    headerHi.style.color = '#78B0FF'
-    headerHi.style.transition = "2.5s";
+//    headerHi.style.color = '#78B0FF'
+//    headerHi.style.transition = "2.5s";
 //    headerDescription.style.color = '#4d97ff'
 //    headerDescription.style.transition = "2.5s";
     
@@ -256,10 +256,16 @@ function theme() {
 }
   
 
-var card = document.querySelector('.header__hi');
+var card = document.querySelector('#set_n_desc');
 var main = document.querySelector(".main");
 card.addEventListener( 'click', function() {
   main.classList.toggle('flipped');
+  if(card.textContent === 'game') {
+    card.textContent = 'description/settings'
+  }
+  else {
+    card.textContent = 'game'
+  }
 });
 
 
