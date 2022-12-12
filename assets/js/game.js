@@ -3,6 +3,7 @@ var resultArea = document.querySelector(".info");
 var totalTryesQuantity = document.querySelector(".counter-total-quantity");
 var percentsArea = document.querySelector(".counter-percent");
 var keyBoardsPull = document.querySelectorAll(".button-keyboard");
+var mainHeader = document.querySelector(".header");
 var random = randomNumber()
 var guessesPercents = 0
 var trying = 0
@@ -267,6 +268,15 @@ card.addEventListener( 'click', function() {
     card.textContent = 'game'
   }
 });
+
+
+
+if (window.matchMedia("(min-width: 600px)").matches) {
+  card.classList.add('visually-hidden');
+  mainHeader.style.border = '0px'
+  mainHeader.style.boxShadow = 'none'
+} 
+
 
 
 
