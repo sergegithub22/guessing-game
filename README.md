@@ -2,7 +2,7 @@
 In this game you have to guess a number which was given randomly. v0.1
 
 ### Rules:
- - Range from 0 to 10 inclusively
+ - Range from 1 to 10 inclusively
  - You have a 30 attempts to guess. For 0 attempts new game will starts
  - In the field "Info" you can see current information
  - Also, below field "Info", you can see how much attempts is left and guessing percents
