@@ -28,8 +28,7 @@ function game() {
   if (clearTrig === 1){
     sessionTryes = 0
     clearTrig = 0 
-  } 
-  
+  }  
   if (parseInt(mobileInputNumber.value) === random) {guessNumber()}
   else {noneGuessNumber()}
   calcPersents()
@@ -258,7 +257,7 @@ function theme() {
   
 
 var card = document.querySelector('#set_n_desc');
-var main = document.querySelector(".main");
+var main = document.querySelector('.main');
 card.addEventListener( 'click', function() {
   main.classList.toggle('flipped');
   if(card.textContent === 'game') {
@@ -271,7 +270,7 @@ card.addEventListener( 'click', function() {
 
 
 
-if (window.matchMedia("(min-width: 600px)").matches) {
+if (window.matchMedia('(min-width: 600px)').matches) {
   card.classList.add('visually-hidden');
   mainHeader.style.border = '0px'
   mainHeader.style.boxShadow = 'none'

@@ -1,4 +1,4 @@
-# Guessing random number. Little game. (coming soon)
+# Guessing random number. Little game. Alfa-ver
 In this game you have to guess a number which was given randomly. v0.1
 
 ### Rules:
