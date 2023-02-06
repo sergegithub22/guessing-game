@@ -181,7 +181,33 @@ function theme() {
       buttonNumber[bn].style.borderColor = 'gray';
       buttonNumber[bn].style.boxShadow = 'gray 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
+      buttonNumber[bn].addEventListener("mousedown", (event) =>{
+        event.target.style.borderColor = 'white';
+        buttonNumber[bn].style.transition = "0.1s";
+      });
+      // buttonNumber[bn].addEventListener("mouseup", (event) =>{
+      //   event.target.style.borderColor = 'gray';
+      // });
+    
+
     }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
+      buttonNumber[bn].addEventListener("touchstart", (event) =>{
+        event.target.style.transition = "0.1s";
+        event.target.style.borderColor = 'white';
+        
+      });     
+    }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
+      buttonNumber[bn].addEventListener("touchend", (event) =>{
+        event.target.style.transition = "0.1s";
+        event.target.style.borderColor = 'gray';
+       
+      });     
+    }
+     // buttonNumber[bn].addEventListener("mouseup", (event) =>{
+      //   event.target.style.borderColor = 'gray';
+      // });
 //    headerHi.style.color = 'black'
 //    headerHi.style.transition = "2.5s";
 //    headerDescription.style.color = 'black'

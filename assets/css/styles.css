@@ -127,8 +127,6 @@ body {
 .header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  border-bottom: 3px solid #78B0FF;
-  box-shadow: 0px 0px 8px #78B0FF;
 }
 
 .header__center {
@@ -136,7 +134,6 @@ body {
 }
 
 .header__hi {
-  padding: 10px;
   margin-top: 0px;
   margin-bottom: 0px;
   text-align: center;
@@ -263,10 +260,10 @@ body {
   border: 3px solid #5B0000;
 }
 .button:active {
-  box-shadow: 0px 0px 38px #FF000;
+  box-shadow: 0px 0px 38px #FF0000;
   transition-duration: 0s;
   color: white;
-  border: 3px solid #5B0000;
+  border: 3px solid #FF0000;
 }
 
 .result-header {
@@ -542,7 +539,7 @@ body {
     grid-gap: 30px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    margin-top: 20px;
+    margin-top: 15px;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;

@@ -64,8 +64,11 @@
                 <span class="counter-percent text--violet"></span>
               </div>
             </section>
-            <label class="visually-hidden" for="header_search">Enter number:</label>
-						<input class="mobile-main-input" name="Mobile main input" id="mobile main input" type="text"/>
+              <form>
+                <label class="visually-hidden" for="header_search">Enter number:</label>
+                <input class="mobile-main-input" maxlength="2" required name="Mobile main input" id="mobile main input" inputmode="numeric" type="text"/>
+              </form>
+            
             <section class="game__numbers-section">
               <button class="button-keyboard button-number" id="n0">0</button>
               <button class="button-keyboard button-number" id="n1">1</button>
@@ -78,7 +81,7 @@
               <button class="button-keyboard button-number" id="n8">8</button>
               <button class="button-keyboard button-number" id="n9">9</button>
               <button class="button-keyboard button-del" id="del">Del</button>
-              <button class="button-keyboard button-enter" id="compare">Compare</button>
+              <button type="button" class="button-keyboard button-enter" id="compare">Compare</button>
             </section>
             
           </article>
