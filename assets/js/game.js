@@ -182,30 +182,39 @@ function theme() {
       buttonNumber[bn].style.boxShadow = 'gray 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
       buttonNumber[bn].addEventListener("mousedown", (event) =>{
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.borderColor = 'white';
         event.target.style.color = "white";   
       });
       buttonNumber[bn].addEventListener("mouseup", (event) =>{
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.borderColor = 'gray';
         event.target.style.color = 'black';
       });
+     }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].addEventListener("touchstart", (event) =>{
-        event.preventDefault()
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.color = "white";
         event.target.style.borderColor = 'white';
-      });
+        
+      });     
+    }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].addEventListener("touchend", (event) =>{
-        event.preventDefault()
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.color = "black";
         event.target.style.borderColor = 'gray';
        
-      });
-     }
-  
+      });     
+    }
+     // buttonNumber[bn].addEventListener("mouseup", (event) =>{
+      //   event.target.style.borderColor = 'gray';
+      // });
+//    headerHi.style.color = 'black'
+//    headerHi.style.transition = "2.5s";
+//    headerDescription.style.color = 'black'
+//    headerDescription.style.transition = "2.5s";
 
     buttonTheme.textContent = 'dark theme'
     buttonTheme.id = 'light'
@@ -265,23 +274,18 @@ function theme() {
       buttonNumber[bn].style.boxShadow = '#002252 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
       buttonNumber[bn].addEventListener("mouseup", (event) =>{
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.color = "#388BFF";
         event.target.style.borderColor = '#002252';
       });
-      buttonNumber[bn].addEventListener("touchstart", (event) =>{
-        event.preventDefault()
-        event.target.style.transition = "0.1s";
-        event.target.style.color = "white";
-        event.target.style.borderColor = 'white';
-      });
+    }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].addEventListener("touchend", (event) =>{
-        event.preventDefault()
-        event.target.style.transition = "0.1s";
+        event.target.style.transition = "0s";
         event.target.style.color = "#388BFF";
         event.target.style.borderColor = '#002252';
        
-      });
+      });     
     }
 //    headerHi.style.color = '#78B0FF'
 //    headerHi.style.transition = "2.5s";
