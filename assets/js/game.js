@@ -29,9 +29,16 @@ function game() {
     sessionTryes = 0
     clearTrig = 0 
   }  
-  if (parseInt(mobileInputNumber.value) === random) {guessNumber()}
-  else {noneGuessNumber()}
-  calcPersents()
+  if ((parseInt(mobileInputNumber.value) < 1) || (parseInt(mobileInputNumber.value) > 10 )){
+    alert('Number must be between 1 and 10 inclusevly. Press "Del" to clear entry field')
+    return
+  }
+  else{
+    if (parseInt(mobileInputNumber.value) === random) {guessNumber()}
+    else {noneGuessNumber()}
+    calcPersents()
+    }
+  
 }
 
 function start() {
@@ -169,6 +176,7 @@ function theme() {
     
     info.style.backgroundColor = 'lightgray'
     info.style.color = '#0053c7'
+    info.style.borderColor  = 'gray'
     info.style.transition = "2.5s";
     for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].style.backgroundColor = "lightgray";
@@ -202,7 +210,7 @@ function theme() {
       });     
     }
 
-    buttonTheme.textContent = 'dark theme'
+    buttonTheme.textContent = 'dark theme off'
     buttonTheme.id = 'light'
   }
   else if (buttonTheme.id === 'light') {
@@ -248,27 +256,35 @@ function theme() {
     info.style.backgroundColor = 'black'
     info.style.color = '#0053c7'
     info.style.transition = "2.5s";
+    info.style.borderColor = "#10182F";
     for (bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].style.backgroundColor = "black";
-      buttonNumber[bn].style.color = "#388BFF";
+      buttonNumber[bn].style.color = "#8fc9ff";
       buttonNumber[bn].style.borderColor = '#002252';
       buttonNumber[bn].style.boxShadow = '#002252 0px 0px 4px'
       buttonNumber[bn].style.transition = "2.5s";
       buttonNumber[bn].addEventListener("mouseup", (event) =>{
         event.target.style.transition = "0s";
-        event.target.style.color = "#388BFF";
+        event.target.style.color = "#8fc9ff";
         event.target.style.borderColor = '#002252';
       });
     }
     for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
+      buttonNumber[bn].addEventListener("touchstart", (event) =>{
+        event.target.style.transition = "0s";
+        event.target.style.color = "white";
+        event.target.style.borderColor = 'white';
+      });     
+    }
+    for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].addEventListener("touchend", (event) =>{
         event.target.style.transition = "0s";
-        event.target.style.color = "#388BFF";
+        event.target.style.color = "#8fc9ff";
         event.target.style.borderColor = '#002252';
        
       });     
     }
-    buttonTheme.textContent = 'light theme'
+    buttonTheme.textContent = 'dark theme on'
     buttonTheme.id = 'dark'
   }
 }

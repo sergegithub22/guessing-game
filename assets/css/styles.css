@@ -16,7 +16,7 @@
 body {
   padding: 0px;
   margin: 0px;
-  background-color: #000C17;
+  background-color: lightgray;
 }
 
 * {
@@ -38,7 +38,7 @@ body {
   text-align: center;
   font-size: 21px;
   font-family: "Orbitron", Sans-Serif;
-  color: #00c2cc;
+  color: #005c61;
   text-transform: uppercase;
 }
 
@@ -49,7 +49,7 @@ body {
   padding-top: 0px;
   margin-top: 0px;
   font-size: 22px;
-  color: #CA00D7;
+  color: #cc00ff;
 }
 
 .uppercase {
@@ -69,7 +69,7 @@ body {
   overflow: hidden;
 }
 
-.button-theme {
+.button-theme, .button-settings {
   font-family: "Goldman", Sans-Serif;
   text-decoration: none;
   color: #8438FF;
@@ -77,32 +77,20 @@ body {
   background-color: inherit;
   border: none;
   text-transform: uppercase;
+  cursor: pointer;
 }
-.button-theme:hover {
-  color: white;
-}
-
-.button-settings {
-  font-family: "Goldman", Sans-Serif;
-  text-decoration: none;
-  color: #8438FF;
-  font-size: 21px;
-  background-color: inherit;
-  border: none;
-  text-transform: uppercase;
-}
-.button-settings:hover {
+.button-theme:hover, .button-settings:hover {
   color: white;
 }
 
 .text {
   font-family: "FiraSansExtraCondensed", Sans-Serif;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 100;
 }
 
 .text--blue {
-  color: #8ABBFF;
+  color: rgb(53, 53, 53);
 }
 
 .text--red {
@@ -110,7 +98,7 @@ body {
 }
 
 .text--violet {
-  color: #78B0FF;
+  color: rgb(68, 68, 68);
 }
 
 .font-size-20px {
@@ -120,7 +108,11 @@ body {
 .counter-header-text {
   font-family: "Goldman", Sans-Serif;
   font-size: 25px;
-  color: #009DA6;
+  color: #005c61;
+  font-weight: 100;
+}
+
+.font900 {
   font-weight: 900;
 }
 
@@ -176,18 +168,16 @@ body {
 .rules {
   order: 2;
   padding: 40px;
-  background-color: black;
+  background-color: lightgray;
   border-radius: 30px;
-  border: 3px solid #002252;
-  box-shadow: 0px 0px 13px #002252;
+  box-shadow: 0px 0px 13px gray;
 }
 
 .game {
   padding: 40px;
-  background-color: black;
+  background-color: lightgray;
   border-radius: 30px;
-  border: 3px solid #002252;
-  box-shadow: 0px 0px 13px #002252;
+  box-shadow: 0px 0px 13px gray;
 }
 
 .game-items {
@@ -202,15 +192,15 @@ body {
   grid-gap: 20px;
   padding: 10px;
   padding-top: 0px;
-  background-color: black;
+  background-color: lightgray;
 }
 
 .main-input {
   width: 100%;
   font-family: "Goldman", Sans-Serif;
   padding: 10px;
-  background-color: black;
-  border: 3px solid #002251;
+  background-color: lightgray;
+  border: 3px solid gray;
   border-radius: 15px;
   box-shadow: 0px 0px 3px #0058D3;
   color: #388BFF;
@@ -243,11 +233,11 @@ body {
   font-family: "Goldman", Sans-Serif;
   font-size: 38px;
   padding: 10px;
-  background-color: black;
-  border: 3px solid #002251;
+  background-color: lightgray;
+  border: 3px solid gray;
   border-radius: 15px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
+  box-shadow: 0px 0px 3px gray;
+  color: black;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
@@ -276,13 +266,13 @@ body {
 .info {
   width: 100%;
   font-family: "Goldman", Sans-Serif;
-  background-color: black;
+  background-color: lightgray;
   border: none;
-  color: #388BFF;
+  color: black;
   resize: none;
   font-size: 25px;
   height: 120px;
-  border: 3px solid #10182F;
+  border: 2px solid gray;
   border-radius: 15px;
   padding: 5px;
 }
@@ -305,7 +295,6 @@ body {
 .counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
   font-family: "Orbitron", Sans-Serif;
   font-size: 25px;
-  font-weight: 900;
 }
 
 .guess-percents, .guess-score, .tryes-quantity, .total-tryes-quantity {
@@ -327,27 +316,23 @@ body {
 .rules {
   font-family: "FiraSansExtraCondensed", Sans-Serif;
   font-size: 22px;
-  font-weight: 900;
 }
 
 .settings {
   order: 2;
   padding: 40px;
-  background-color: black;
+  background-color: lightgray;
   border-radius: 30px;
-  border: 3px solid #002252;
-  box-shadow: 0px 0px 13px #002252;
+  box-shadow: 0px 0px 13px gray;
   font-family: "Goldman", Sans-Serif;
   font-size: 22px;
-  font-weight: 900;
 }
 
 .mobile-game {
   padding: 40px;
-  background-color: black;
+  background-color: lightgray;
   border-radius: 30px;
-  border: 3px solid #002252;
-  box-shadow: 0px 0px 13px #002252;
+  box-shadow: 0px 0px 13px gray;
 }
 
 .game__numbers-section {
@@ -361,11 +346,11 @@ body {
   width: 100%;
   font-family: "Goldman", Sans-Serif;
   padding: 5px;
-  background-color: black;
-  border: 3px solid #002251;
+  background-color: lightgray;
+  border: 3px solid gray;
   border-radius: 15px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
+  box-shadow: 0px 0px 3px gray;
+  color: black;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
@@ -381,41 +366,45 @@ body {
   width: 75px;
   height: 45px;
   font-family: "Goldman", Sans-Serif;
-  background-color: black;
-  border: 3px solid #002251;
+  background-color: lightgray;
+  border: 3px solid gray;
   border-radius: 10px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #7DB3FF;
+  box-shadow: 0px 0px 3px gray;
+  color: black;
   transition-property: box-shadow, border, color;
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
   padding: 0px;
-  font-size: 20px;
+  font-size: 25px;
+  cursor: pointer;
 }
 .button-number:active {
   color: white;
   border: 3px solid white;
+  box-shadow: none;
 }
 
 .button-enter, .button-del {
   margin: 5px;
   font-family: "Goldman", Sans-Serif;
-  background-color: black;
-  border: 3px solid #002251;
+  background-color: lightgray;
+  border: 3px solid gray;
   border-radius: 10px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #7DB3FF;
+  box-shadow: 0px 0px 3px gray;
+  color: black;
   transition-property: box-shadow, border, color;
   transition-duration: 0.1s;
   transition-timing-function: ease-out;
-  padding: 0px;
-  width: 75px;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 45px;
-  font-size: 12px;
+  font-size: 25px;
+  cursor: pointer;
 }
 .button-enter:active, .button-del:active {
   color: white;
   border: 3px solid white;
+  box-shadow: none;
 }
 
 .ramka {
@@ -577,6 +566,7 @@ body {
     font-weight: 900;
     padding: 7px;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: perspective(500px) rotateY(180deg);
   }
@@ -590,12 +580,12 @@ body {
   .mobile-game {
     position: absolute;
     padding: 40px;
-    background-color: black;
+    background-color: lightgray;
     border-radius: 30px;
-    border: 3px solid #002252;
-    box-shadow: 0px 0px 13px #002252;
+    box-shadow: 0px 0px 13px gray;
     padding: 7px;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
   }
   .flipped {
@@ -605,11 +595,11 @@ body {
     width: 100%;
     font-family: "Goldman", Sans-Serif;
     padding: 5px;
-    background-color: black;
-    border: 3px solid #002251;
+    background-color: lightgrey;
+    border: 3px solid gray;
     border-radius: 15px;
-    box-shadow: 0px 0px 3px #0058D3;
-    color: #7DB3FF;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
     transition-property: box-shadow, border, color;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
@@ -620,11 +610,11 @@ body {
     width: 75px;
     height: 45px;
     font-family: "Goldman", Sans-Serif;
-    background-color: black;
-    border: 3px solid #002251;
+    background-color: lightgray;
+    border: 3px solid gray;
     border-radius: 10px;
-    box-shadow: 0px 0px 3px #0058D3;
-    color: #7DB3FF;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
     transition-property: box-shadow, border, color;
     transition-duration: 0.1s;
     transition-timing-function: ease-out;
@@ -634,15 +624,16 @@ body {
   .button-number:active {
     color: white;
     border: 3px solid white;
+    box-shadow: none;
   }
   .button-enter, .button-del {
     margin: 5px;
     font-family: "Goldman", Sans-Serif;
-    background-color: black;
-    border: 3px solid #002251;
+    background-color: lightgray;
+    border: 3px solid gray;
     border-radius: 10px;
-    box-shadow: 0px 0px 3px #0058D3;
-    color: #7DB3FF;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
     transition-property: box-shadow, border, color;
     transition-duration: 0.1s;
     transition-timing-function: ease-out;
@@ -654,6 +645,7 @@ body {
   .button-enter:active, .button-del:active {
     color: white;
     border: 3px solid white;
+    box-shadow: none;
   }
   .info {
     height: 100px;
