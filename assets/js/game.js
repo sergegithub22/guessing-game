@@ -159,12 +159,7 @@ function theme() {
     sectionRules.style.borderColor  = 'gray'
     sectionRules.style.boxShadow = 'gray 0px 0px 13px'
     sectionRules.style.transition = "2.5s";
-    
-//    sectionSettings.style.backgroundColor = 'lightgray'
-//    sectionSettings.style.borderColor  = 'gray'
-//    sectionSettings.style.boxShadow = 'gray 0px 0px 13px'
-//    sectionSettings.style.transition = "2.5s";
-    
+       
     sectionGame.style.backgroundColor  = 'lightgray'
     sectionGame.style.transition = "2.5s";
     
@@ -204,24 +199,15 @@ function theme() {
         event.target.style.transition = "0s";
         event.target.style.color = "white";
         event.target.style.borderColor = 'white';
-        
       });     
     }
     for (var bn = buttonNumber.length - 1; bn >= 0; bn--){
       buttonNumber[bn].addEventListener("touchend", (event) =>{
         event.target.style.transition = "0s";
         event.target.style.color = "black";
-        event.target.style.borderColor = 'gray';
-       
+        event.target.style.borderColor = 'gray';  
       });     
     }
-     // buttonNumber[bn].addEventListener("mouseup", (event) =>{
-      //   event.target.style.borderColor = 'gray';
-      // });
-//    headerHi.style.color = 'black'
-//    headerHi.style.transition = "2.5s";
-//    headerDescription.style.color = 'black'
-//    headerDescription.style.transition = "2.5s";
 
     buttonTheme.textContent = 'dark theme'
     buttonTheme.id = 'light'
@@ -251,12 +237,7 @@ function theme() {
     sectionRules.style.borderColor  = '#002252'
     sectionRules.style.boxShadow = '#002252 0px 0px 13px'
     sectionRules.style.transition = "2.5s";
-    
-//    sectionSettings.style.backgroundColor = 'black'
-//    sectionSettings.style.borderColor  = '#002252'
-//    sectionSettings.style.boxShadow = '#002252 0px 0px 13px'
-//    sectionSettings.style.transition = "2.5s";
-    
+      
     sectionGame.style.backgroundColor  = 'black'
     sectionGame.style.transition = "2.5s";
     
@@ -294,11 +275,6 @@ function theme() {
        
       });     
     }
-//    headerHi.style.color = '#78B0FF'
-//    headerHi.style.transition = "2.5s";
-//    headerDescription.style.color = '#4d97ff'
-//    headerDescription.style.transition = "2.5s";
-    
     buttonTheme.textContent = 'light theme'
     buttonTheme.id = 'dark'
   }
@@ -316,13 +292,42 @@ card.addEventListener( 'click', function() {
     card.textContent = 'game'
   }
 });
+card.addEventListener("touchstart", () =>{
+  main.classList.toggle('flipped');
+  if(card.textContent === 'game') {
+    card.textContent = 'description/settings'
+  }
+  else {
+    card.textContent = 'game'
+  }
+  card.style.color = "white";
 
+});     
+card.addEventListener("touchend", () =>{
+  main.classList.toggle('flipped');
+  if(card.textContent === 'game') {
+    card.textContent = 'description/settings'
+  }
+  else {
+    card.textContent = 'game'
+  }
+  card.style.color = "#8438FF";
+});
+buttonTheme.addEventListener("touchstart", () =>{
+  
+  buttonTheme.style.color = "white";
 
+});     
+buttonTheme.addEventListener("touchend", () =>{
+
+  buttonTheme.style.color = "#8438FF";
+});
 
 if (window.matchMedia('(min-width: 600px)').matches) {
   card.classList.add('visually-hidden');
   mainHeader.style.border = '0px'
   mainHeader.style.boxShadow = 'none'
+  
 } 
 
 
