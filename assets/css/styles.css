@@ -13,6 +13,20 @@
   font-style: normal;
   src: url("../fonts/Goldman-Regular.ttf");
 }
+.icon-rules {
+  fill: gray;
+}
+.icon-rules:hover {
+  fill: black;
+}
+
+.icon-theme {
+  fill: gray;
+}
+.icon-theme:hover {
+  fill: black;
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -36,7 +50,7 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
   text-align: center;
-  font-size: 21px;
+  font-size: 17px;
   font-family: "Orbitron", Sans-Serif;
   color: #005c61;
   text-transform: uppercase;
@@ -77,7 +91,6 @@ body {
   background-color: inherit;
   border: none;
   text-transform: uppercase;
-  cursor: pointer;
 }
 .button-theme:hover, .button-settings:hover {
   color: white;
@@ -98,7 +111,11 @@ body {
 }
 
 .text--violet {
-  color: rgb(68, 68, 68);
+  color: #0064f0;
+}
+
+.text--marked {
+  color: #0064f0;
 }
 
 .font-size-20px {
@@ -107,7 +124,7 @@ body {
 
 .counter-header-text {
   font-family: "Goldman", Sans-Serif;
-  font-size: 25px;
+  font-size: 15px;
   color: #005c61;
   font-weight: 100;
 }
@@ -125,31 +142,6 @@ body {
   text-align: center;
 }
 
-.header__hi {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  text-align: center;
-  color: #78B0FF;
-  font-size: 20px;
-  font-weight: 700;
-  font-family: "Goldman", Sans-Serif;
-  text-transform: uppercase;
-}
-
-.header__name {
-  color: #0055BC;
-  font-size: 25px;
-}
-
-.header__description {
-  margin-top: 0px;
-  text-align: center;
-  color: #4d97ff;
-  font-size: 15px;
-  font-family: "Goldman", Sans-Serif;
-  text-transform: uppercase;
-}
-
 .header__right {
   text-align: right;
 }
@@ -160,62 +152,43 @@ body {
   grid-template-rows: auto;
   grid-gap: 60px;
   margin-top: 60px;
-  max-width: 30%;
+  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .rules {
   order: 2;
-  padding: 40px;
+  padding: 10px;
   background-color: lightgray;
-  border-radius: 30px;
-  box-shadow: 0px 0px 13px gray;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px gray;
+}
+
+.desc_content {
+  padding: 10px;
 }
 
 .game {
-  padding: 40px;
+  padding: 10px;
   background-color: lightgray;
-  border-radius: 30px;
-  box-shadow: 0px 0px 13px gray;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px gray;
 }
 
 .game-items {
   display: grid;
-  grid-gap: 40px;
+  grid-gap: 30px;
 }
 
 .game__item {
   display: grid;
   grid-template-rows: auto;
   align-items: center;
-  grid-gap: 20px;
+  grid-gap: 10px;
   padding: 10px;
   padding-top: 0px;
   background-color: lightgray;
-}
-
-.main-input {
-  width: 100%;
-  font-family: "Goldman", Sans-Serif;
-  padding: 10px;
-  background-color: lightgray;
-  border: 3px solid gray;
-  border-radius: 15px;
-  box-shadow: 0px 0px 3px #0058D3;
-  color: #388BFF;
-  transition-property: box-shadow, border, color;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
-  font-size: 38px;
-}
-.main-input:focus {
-  outline: none;
-  border: 3px solid #003681;
-}
-
-.main-input::placeholder {
-  color: #0B1326;
 }
 
 .game__links {
@@ -224,42 +197,10 @@ body {
   align-content: space-around;
 }
 
-.game__links a {
-  height: 48px;
-}
-
-.button {
-  text-align: center;
-  font-family: "Goldman", Sans-Serif;
-  font-size: 38px;
-  padding: 10px;
-  background-color: lightgray;
-  border: 3px solid gray;
-  border-radius: 15px;
-  box-shadow: 0px 0px 3px gray;
-  color: black;
-  transition-property: box-shadow, border, color;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
-  text-decoration: none;
-  font-weight: 900;
-}
-.button:hover {
-  box-shadow: 0px 0px 18px #5B0000;
-  transition-duration: 0s;
-  border: 3px solid #5B0000;
-}
-.button:active {
-  box-shadow: 0px 0px 38px #FF0000;
-  transition-duration: 0s;
-  color: white;
-  border: 3px solid #FF0000;
-}
-
 .result-header {
   display: block;
   font-family: "Goldman", Sans-Serif;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -270,11 +211,12 @@ body {
   border: none;
   color: black;
   resize: none;
-  font-size: 25px;
-  height: 120px;
-  border: 2px solid gray;
-  border-radius: 15px;
+  font-size: 20px;
+  height: 100px;
+  border: 1px solid gray;
+  border-radius: 10px;
   padding: 5px;
+  font-size: 18px;
 }
 .info:focus {
   outline: none;
@@ -292,47 +234,41 @@ body {
   font-size: 48px;
 }
 
-.counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
+.counter-percent, .counter-total-quantity {
   font-family: "Orbitron", Sans-Serif;
-  font-size: 25px;
+  font-size: 15px;
 }
 
-.guess-percents, .guess-score, .tryes-quantity, .total-tryes-quantity {
+.guess-percents, .total-tryes-quantity {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.game__links {
-  height: 100%;
-  display: grid;
-  align-content: space-around;
-}
-
-.game__links a {
-  height: 48px;
-}
-
 .rules {
   font-family: "FiraSansExtraCondensed", Sans-Serif;
-  font-size: 22px;
+  font-size: 15px;
 }
 
 .settings {
   order: 2;
-  padding: 40px;
+  padding: 10px;
   background-color: lightgray;
-  border-radius: 30px;
-  box-shadow: 0px 0px 13px gray;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px gray;
   font-family: "Goldman", Sans-Serif;
-  font-size: 22px;
 }
 
 .mobile-game {
-  padding: 40px;
+  padding: 10px;
   background-color: lightgray;
-  border-radius: 30px;
-  box-shadow: 0px 0px 13px gray;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px gray;
+}
+
+.mobile-game__header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .game__numbers-section {
@@ -347,14 +283,13 @@ body {
   font-family: "Goldman", Sans-Serif;
   padding: 5px;
   background-color: lightgray;
-  border: 3px solid gray;
-  border-radius: 15px;
-  box-shadow: 0px 0px 3px gray;
+  border: 2px solid gray;
+  border-radius: 10px;
   color: black;
   transition-property: box-shadow, border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-out;
-  font-size: 30px;
+  font-size: 20px;
 }
 .mobile-main-input:focus {
   outline: none;
@@ -362,55 +297,44 @@ body {
 }
 
 .button-number {
-  margin: 5px;
-  width: 75px;
-  height: 45px;
+  margin: 3px;
+  width: 55px;
+  height: 35px;
   font-family: "Goldman", Sans-Serif;
   background-color: lightgray;
   border: 3px solid gray;
   border-radius: 10px;
   box-shadow: 0px 0px 3px gray;
   color: black;
-  transition-property: box-shadow, border, color;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-out;
   padding: 0px;
-  font-size: 25px;
-  cursor: pointer;
+  font-size: 15px;
 }
 .button-number:active {
   color: white;
   border: 3px solid white;
-  box-shadow: none;
 }
 
 .button-enter, .button-del {
-  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
   font-family: "Goldman", Sans-Serif;
   background-color: lightgray;
   border: 3px solid gray;
   border-radius: 10px;
   box-shadow: 0px 0px 3px gray;
   color: black;
-  transition-property: box-shadow, border, color;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-out;
   padding-left: 10px;
   padding-right: 10px;
-  height: 45px;
-  font-size: 25px;
-  cursor: pointer;
+  width: 55px;
+  height: 35px;
+  font-size: 20px;
 }
 .button-enter:active, .button-del:active {
+  fill: white;
   color: white;
   border: 3px solid white;
-  box-shadow: none;
-}
-
-.ramka {
-  background: #FAFAFA;
-  border: 1px solid #E4E4E4;
-  padding: 8px;
 }
 
 @media (min-width: 1950px) {
@@ -564,7 +488,7 @@ body {
     font-family: "FiraSansExtraCondensed", Sans-Serif;
     font-size: 15px;
     font-weight: 900;
-    padding: 7px;
+    padding: 20px;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -575,14 +499,14 @@ body {
     padding: 0px;
   }
   .desc_content {
-    padding: 20px;
+    padding: 5px;
   }
   .mobile-game {
     position: absolute;
-    padding: 40px;
+    padding: 10px;
     background-color: lightgray;
-    border-radius: 30px;
-    box-shadow: 0px 0px 13px gray;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px gray;
     padding: 7px;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -605,6 +529,10 @@ body {
     transition-timing-function: ease-out;
     font-size: 30px;
   }
+  .mobile-main-input:active {
+    color: white;
+    border: 3px solid white;
+  }
   .button-number {
     margin: 5px;
     width: 75px;
@@ -615,16 +543,12 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 3px gray;
     color: black;
-    transition-property: box-shadow, border, color;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-out;
     padding: 0px;
     font-size: 20px;
   }
   .button-number:active {
     color: white;
     border: 3px solid white;
-    box-shadow: none;
   }
   .button-enter, .button-del {
     margin: 5px;
@@ -634,9 +558,6 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 3px gray;
     color: black;
-    transition-property: box-shadow, border, color;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-out;
     padding: 0px;
     width: 75px;
     height: 45px;
@@ -645,7 +566,6 @@ body {
   .button-enter:active, .button-del:active {
     color: white;
     border: 3px solid white;
-    box-shadow: none;
   }
   .info {
     height: 100px;
