@@ -21,7 +21,7 @@ start()
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
     keyBoardsPull[i].addEventListener("click", useKeyboard);
   }
-buttonTheme.addEventListener("click", theme);
+// buttonTheme.addEventListener("click", theme);
 
 function game() {
   if (newGame === 1) {
@@ -316,6 +316,32 @@ function theme() {
 
 var card = document.querySelector('#set_n_desc');
 var main = document.querySelector('.main');
+
+var rulesBtn = document.querySelector('.rules-btn');
+var rulesSection = document.querySelector('.rules');
+var rulesHide = true;
+rulesBtn.addEventListener( 'click', function() {
+  console.log(rulesHide)
+  if (rulesHide === true){
+    rulesSection.classList.remove('visually-hidden');
+    
+    main.style.maxWidth = "950px";
+    main.style.gridTemplateColumns = "1fr 1.5fr";
+    main.style.transition = "0.05s";
+    rulesHide = false;
+    return
+  }
+  if (rulesHide === false){
+    rulesSection.classList.add('visually-hidden');
+    
+    main.style.maxWidth = "350px";
+    main.style.gridTemplateColumns = "1fr";
+    rulesHide = true;
+    return
+  }
+  
+});
+
 card.addEventListener( 'click', function() {
   main.classList.toggle('flipped');
   if(card.textContent === 'game') {
@@ -346,14 +372,14 @@ card.addEventListener("touchend", () =>{
   }
   card.style.color = "#8438FF";
 });
-buttonTheme.addEventListener("touchstart", (event) =>{
-  buttonTheme.style.color = "white";
+// buttonTheme.addEventListener("touchstart", (event) =>{
+//   buttonTheme.style.color = "white";
 
-});     
-buttonTheme.addEventListener("touchend", () =>{
+// });     
+// buttonTheme.addEventListener("touchend", () =>{
 
-  buttonTheme.style.color = "#8438FF";
-});
+//   buttonTheme.style.color = "#8438FF";
+// });
 
 if (window.matchMedia('(min-width: 600px)').matches) {
   card.classList.add('visually-hidden');

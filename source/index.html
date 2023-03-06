@@ -22,13 +22,13 @@
       </section>
     </header>
     <main class="main">
-      <section class="rules">
+      <section class="rules visually-hidden">
         <section class="about">
-          <h2 class="sections__header">description</h2><a name="description"></a>
+          <h2 class="sections__header">rules</h2><a name="description"></a>
           <div class="desc_content">
             <p class="red visually-hidden">To play this game you must turn on JavaScript option in your browser</p>
             <p class=" text--blue ">In this game you have to guess a number which was given randomly. Range from 1 to 10 inclusively.</p>
-            <p class=" text--blue ">Game interface comprises (from top to below): Header "Game", header "Info", information field, advancer information (attempts, guesses), entry field, screen keyboard  </p>
+            <!-- <p class=" text--blue ">Game interface comprises (from top to below): Header "Game", header "Info", information field, advancer information (attempts, guesses), entry field, screen keyboard  </p> -->
             <p class=" text--blue "><span class="text--marked font900">How to play:</span><br>
               Enter a number from 1 to 10 inclusively by screen keyboard, then press button  
               <svg class="icon-compare" height="13" width="16" viewBox="0 0 40 32">
@@ -41,11 +41,11 @@
             </p>
             <p class=" text--blue ">You have a 30 attempts to guess. For 0 attempts new game will starts</p>
             <p class=" text--blue ">In the information field you can see current information; rnd - random number</p>
-            <p class=" text--blue ">Also, below information field, you can see how much attempts is left and guessing percents</p>
+            <p class=" text--blue "><span class=" text--marked ">Attempts</span> - how much attempts is left.<br><span class=" text--marked ">Guessing</span> - guessing percents</p>
             <p class=" text--blue "><span class=" text--marked font900">Themes.</span> In section "Settings" you can set theme would you like: light or dark. Light is default </p>
             
-            <h2 class="sections__header">settings</h2>
-          <p class=" text--blue "><button class="button-theme" id="light"> dark theme off</button></p>
+            <!-- <h2 class="sections__header">settings</h2>
+          <p class=" text--blue "><button class="button-theme" id="light"> dark theme off</button></p> -->
           </div>
           
           
@@ -54,21 +54,19 @@
 
       <section class="mobile-game"> 
         <div class="mobile-game__header">
-          <div class="mobile-game__left-header">
-            <!-- <svg class="icon-theme" height="14" width="14" viewBox="0 0 16 16">
-              <use xlink:href="assets/img/sprite.svg#dark"></use>
-            </svg> -->
-          </div>
+          <button class="theme-btn">
+            <svg class="icon-rules" height="17" width="17" viewBox="0 0 16 16">
+              <use xlink:href="assets/img/sprite.svg#light"></use>
+            </svg>
+          </button>
           <h2 class="sections__header">guessing game</h2>
-          <div class="mobile-game__right-header">
-            <!-- <svg class="icon-rules" height="18" width="18" viewBox="0 0 24 24">
-              <use xlink:href="assets/img/sprite.svg#rules"></use>
-            </svg> -->
-          </div>
           
-
+          <button class="rules-btn">
+            <svg class="icon-rules" height="18" width="18" viewBox="0 0 24 24">
+              <use xlink:href="assets/img/sprite.svg#rules"></use>
+            </svg>
+          </button>
         </div>
-        
         <section class="game-items">
           <article class="game__item">
             <section class="message-area">
