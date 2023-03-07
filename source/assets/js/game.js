@@ -11,7 +11,7 @@ var sessionTryes = 0
 var guess = 0
 var miss = 0
 var clearTrig = 0
-var buttonTheme = document.querySelector(".button-theme")
+var buttonTheme = document.querySelector(".theme-btn")
 var newGame
 var AttemptsLeft
 
@@ -21,7 +21,7 @@ start()
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
     keyBoardsPull[i].addEventListener("click", useKeyboard);
   }
-// buttonTheme.addEventListener("click", theme);
+buttonTheme.addEventListener("click", theme);
 
 function game() {
   if (newGame === 1) {
@@ -136,10 +136,13 @@ function theme() {
   var countersHeaderText = document.querySelectorAll(".counter-header-text");
   var countersText = document.querySelectorAll(".text--violet");
   var markedText = document.querySelectorAll(".text--marked");
+  var themeIcon = document.querySelectorAll(".icon-theme use");
   
+  console.log(themeIcon[0].attributes[0].value)
   
   if (buttonTheme.id === 'dark'){
-    body.style.backgroundColor = 'lightgray'
+    themeIcon[0].attributes[0].value = 'assets/img/sprite.svg#light';
+    body.style.backgroundColor = 'lightgray';
     body.style.transition = "2.5s";
     
     for (var txt = text.length - 1; txt >= 0; txt--){
@@ -220,11 +223,10 @@ function theme() {
         event.currentTarget.style.borderColor = 'gray';  
       });     
     }
-
-    buttonTheme.textContent = 'dark theme off'
     buttonTheme.id = 'light'
   }
   else if (buttonTheme.id === 'light') {
+    themeIcon[0].attributes[0].value = 'assets/img/sprite.svg#dark';
     body.style.backgroundColor = '#000C17'
     body.style.transition = "2.5s";
     
@@ -308,7 +310,6 @@ function theme() {
         event.currentTarget.style.borderColor = '#002252';  
       });     
     }
-    buttonTheme.textContent = 'dark theme on'
     buttonTheme.id = 'dark'
   }
 }
@@ -324,7 +325,6 @@ rulesBtn.addEventListener( 'click', function() {
   console.log(rulesHide)
   if (rulesHide === true){
     rulesSection.classList.remove('visually-hidden');
-    
     main.style.maxWidth = "950px";
     main.style.gridTemplateColumns = "1fr 1.5fr";
     main.style.transition = "0.05s";
@@ -333,7 +333,6 @@ rulesBtn.addEventListener( 'click', function() {
   }
   if (rulesHide === false){
     rulesSection.classList.add('visually-hidden');
-    
     main.style.maxWidth = "350px";
     main.style.gridTemplateColumns = "1fr";
     rulesHide = true;
@@ -344,6 +343,7 @@ rulesBtn.addEventListener( 'click', function() {
 
 card.addEventListener( 'click', function() {
   main.classList.toggle('flipped');
+  main.style.transition = "1s";
   if(card.textContent === 'game') {
     card.textContent = 'description/settings'
   }

@@ -13,20 +13,6 @@
   font-style: normal;
   src: url("../fonts/Goldman-Regular.ttf");
 }
-.icon-rules {
-  fill: gray;
-}
-.icon-rules:hover {
-  fill: black;
-}
-
-.icon-theme {
-  fill: gray;
-}
-.icon-theme:hover {
-  fill: black;
-}
-
 body {
   padding: 0px;
   margin: 0px;
@@ -335,6 +321,36 @@ body {
   fill: white;
   color: white;
   border: 3px solid white;
+}
+
+.rules-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: inherit;
+  fill: gray;
+}
+.rules-btn:hover {
+  fill: black;
+}
+.rules-btn:active {
+  fill: white;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: inherit;
+  fill: gray;
+}
+.theme-btn:hover {
+  fill: black;
+}
+.theme-btn:active {
+  fill: white;
 }
 
 @media (min-width: 1950px) {

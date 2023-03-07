@@ -13,13 +13,6 @@
   font-style: normal;
   src: url("../fonts/Goldman-Regular.ttf");
 }
-.icon-theme {
-  fill: gray;
-}
-.icon-theme:hover {
-  fill: black;
-}
-
 body {
   padding: 0px;
   margin: 0px;
