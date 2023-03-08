@@ -146,6 +146,8 @@ function theme() {
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#light';
       themeIcon[ti].style.fill = 'gray';
+      themeIcon[ti].style.transition = "2.5s";
+
     }
     
     body.style.backgroundColor = 'lightgray';
@@ -236,6 +238,7 @@ function theme() {
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#dark';
       themeIcon[ti].style.fill = '#388BFF';
+      themeIcon[ti].style.transition = "2.5s";
     }
     body.style.backgroundColor = '#000C17'
     body.style.transition = "2.5s";
@@ -338,17 +341,30 @@ for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
 rulesBtn[rb].addEventListener( 'click', function() {
   console.log(rulesHide)
   if (rulesHide === true){
-    rulesSection.classList.remove('visually-hidden');
-    main.style.maxWidth = "950px";
+    if (window.matchMedia('(max-width: 600px)').matches) {
+    main.style.maxWidth = "95%";
+    main.style.gridTemplateColumns = "1fr";
+    }
+    else {
+      main.style.maxWidth = "950px";
     main.style.gridTemplateColumns = "1fr 1.5fr";
+    }
     
+    rulesSection.classList.remove('visually-hidden');
     rulesHide = false;
     return
   }
   if (rulesHide === false){
-    rulesSection.classList.add('visually-hidden');
-    main.style.maxWidth = "350px";
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      main.style.maxWidth = "95%";
+      main.style.gridTemplateColumns = "1fr";
+      }
+      else {
+        main.style.maxWidth = "350px";
     main.style.gridTemplateColumns = "1fr";
+      }
+    rulesSection.classList.add('visually-hidden');
+    
     rulesHide = true;
     return
   }
@@ -388,6 +404,8 @@ if (window.matchMedia('(min-width: 600px)').matches) {
   rulesBtn[0].classList.add('visually-hidden');
   buttonTheme[0].classList.add('visually-hidden');
   rulesHeader[0].style.justifyContent = 'center';
+
+  
 
 
   main.style.transition = "0.05s";
