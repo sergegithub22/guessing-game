@@ -11,7 +11,7 @@ var sessionTryes = 0
 var guess = 0
 var miss = 0
 var clearTrig = 0
-var buttonTheme = document.querySelector(".theme-btn")
+var buttonTheme = document.querySelectorAll(".theme-btn")
 var newGame
 var AttemptsLeft
 
@@ -19,10 +19,12 @@ var AttemptsLeft
 start()
 
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
-    keyBoardsPull[i].addEventListener("click", useKeyboard);
+  keyBoardsPull[i].addEventListener("click", useKeyboard);
   }
-buttonTheme.addEventListener("click", theme);
-
+for (var bt = buttonTheme.length - 1; bt >= 0; bt--){  
+  buttonTheme[bt].addEventListener("click", theme);
+  }
+console.log(buttonTheme)
 function game() {
   if (newGame === 1) {
     start()
@@ -140,8 +142,12 @@ function theme() {
   
   console.log(themeIcon[0].attributes[0].value)
   
-  if (buttonTheme.id === 'dark'){
-    themeIcon[0].attributes[0].value = 'assets/img/sprite.svg#light';
+  if (buttonTheme[0].id === 'dark'){
+    for (var ti = themeIcon.length - 1; ti >= 0; ti--){
+      themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#light';
+      themeIcon[ti].style.fill = 'gray';
+    }
+    
     body.style.backgroundColor = 'lightgray';
     body.style.transition = "2.5s";
     
@@ -223,10 +229,14 @@ function theme() {
         event.currentTarget.style.borderColor = 'gray';  
       });     
     }
-    buttonTheme.id = 'light'
+    buttonTheme[0].id = 'light'
   }
-  else if (buttonTheme.id === 'light') {
-    themeIcon[0].attributes[0].value = 'assets/img/sprite.svg#dark';
+  else if (buttonTheme[0].id === 'light') {
+    
+    for (var ti = themeIcon.length - 1; ti >= 0; ti--){
+      themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#dark';
+      themeIcon[ti].style.fill = '#388BFF';
+    }
     body.style.backgroundColor = '#000C17'
     body.style.transition = "2.5s";
     
@@ -310,24 +320,28 @@ function theme() {
         event.currentTarget.style.borderColor = '#002252';  
       });     
     }
-    buttonTheme.id = 'dark'
+    buttonTheme[0].id = 'dark'
   }
 }
   
 
-var card = document.querySelector('#set_n_desc');
+// var card = document.querySelector('#set_n_desc');
 var main = document.querySelector('.main');
+var rulesHeader = document.querySelectorAll('.mobile-game__header');
 
-var rulesBtn = document.querySelector('.rules-btn');
+var rulesBtn = document.querySelectorAll('.rules-btn');
 var rulesSection = document.querySelector('.rules');
 var rulesHide = true;
-rulesBtn.addEventListener( 'click', function() {
+
+
+for (var rb = rulesBtn.length - 1; rb >= 0; rb--){ 
+rulesBtn[rb].addEventListener( 'click', function() {
   console.log(rulesHide)
   if (rulesHide === true){
     rulesSection.classList.remove('visually-hidden');
     main.style.maxWidth = "950px";
     main.style.gridTemplateColumns = "1fr 1.5fr";
-    main.style.transition = "0.05s";
+    
     rulesHide = false;
     return
   }
@@ -340,38 +354,26 @@ rulesBtn.addEventListener( 'click', function() {
   }
   
 });
+}
 
-card.addEventListener( 'click', function() {
-  main.classList.toggle('flipped');
-  main.style.transition = "1s";
-  if(card.textContent === 'game') {
-    card.textContent = 'description/settings'
-  }
-  else {
-    card.textContent = 'game'
-  }
-});
-card.addEventListener("touchstart", (event) =>{
-  main.classList.toggle('flipped');
-  if(card.textContent === 'game') {
-    card.textContent = 'description/settings'
-  }
-  else {
-    card.textContent = 'game'
-  }
-  card.style.color = "white";
 
-});     
-card.addEventListener("touchend", () =>{
+// rulesBtn.addEventListener( 'click', function() {
+//   main.classList.toggle('flipped');
+ 
+  
+
+// });
+// rulesBtn.addEventListener("touchstart", (event) =>{
+//   main.classList.toggle('flipped');
+  
+
+// });   
+for (var rb = rulesBtn.length - 1; rb >= 0; rb--){  
+rulesBtn[rb].addEventListener("touchend", () =>{
   main.classList.toggle('flipped');
-  if(card.textContent === 'game') {
-    card.textContent = 'description/settings'
-  }
-  else {
-    card.textContent = 'game'
-  }
-  card.style.color = "#8438FF";
+ 
 });
+}
 // buttonTheme.addEventListener("touchstart", (event) =>{
 //   buttonTheme.style.color = "white";
 
@@ -382,9 +384,22 @@ card.addEventListener("touchend", () =>{
 // });
 
 if (window.matchMedia('(min-width: 600px)').matches) {
-  card.classList.add('visually-hidden');
+  buttonTheme[0].classList.add
+  rulesBtn[0].classList.add('visually-hidden');
+  buttonTheme[0].classList.add('visually-hidden');
+  rulesHeader[0].style.justifyContent = 'center';
+
+
+  main.style.transition = "0.05s";
+  // card.classList.add('visually-hidden');
   mainHeader.style.border = '0px'
   mainHeader.style.boxShadow = 'none'
+  
+} 
+if (window.matchMedia('(max-width: 600px)').matches) {
+  rulesSection.classList.remove('visually-hidden')
+  main.style.transition = "1s";
+ 
   
 } 
 
