@@ -12,6 +12,7 @@ var guess = 0
 var miss = 0
 var clearTrig = 0
 var buttonTheme = document.querySelectorAll(".theme-btn")
+var rulesBtn = document.querySelectorAll('.rules-btn');
 var newGame
 var AttemptsLeft
 
@@ -139,15 +140,47 @@ function theme() {
   var countersText = document.querySelectorAll(".text--violet");
   var markedText = document.querySelectorAll(".text--marked");
   var themeIcon = document.querySelectorAll(".icon-theme use");
+  var rulesIcon = document.querySelectorAll(".icon-rules use");
+
   
   console.log(themeIcon[0].attributes[0].value)
   
   if (buttonTheme[0].id === 'dark'){
+    for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
+      buttonTheme[bt].addEventListener("mouseover", (event) => {
+        for (var ti = themeIcon.length - 1; ti >= 0; ti--){
+          themeIcon[ti].style.fill = 'black';
+          themeIcon[ti].style.transition = "0.1s";
+        }   
+      });
+      buttonTheme[bt].addEventListener("mouseout", (event) => {
+        for (var ti = themeIcon.length - 1; ti >= 0; ti--){  
+          themeIcon[ti].style.fill = 'gray';
+        }
+      });
+    }
+    for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
+      rulesBtn[rb].addEventListener("mouseover", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){
+          rulesIcon[ri].style.fill = 'black';
+          rulesIcon[ri].style.transition = "0.1s";
+        }   
+      });
+      rulesBtn[rb].addEventListener("mouseout", (event) => {
+        for (var ri = themeIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = 'gray';
+        }
+      });
+    }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#light';
       themeIcon[ti].style.fill = 'gray';
       themeIcon[ti].style.transition = "2.5s";
 
+    }
+    for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
+      rulesBtn[rb].style.fill = 'gray';
+      rulesBtn[rb].style.transition = "2.5s";
     }
     
     body.style.backgroundColor = 'lightgray';
@@ -234,11 +267,43 @@ function theme() {
     buttonTheme[0].id = 'light'
   }
   else if (buttonTheme[0].id === 'light') {
-    
+    for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
+      buttonTheme[bt].addEventListener("mouseover", (event) => {
+        for (var ti = themeIcon.length - 1; ti >= 0; ti--){
+          themeIcon[ti].style.fill = 'white';
+          themeIcon[ti].style.transition = "0.1s";
+        }   
+      });
+      buttonTheme[bt].addEventListener("mouseout", (event) => {
+        for (var ti = themeIcon.length - 1; ti >= 0; ti--){  
+          themeIcon[ti].style.fill = '#388BFF';
+        }
+      });
+    }
+    for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
+      rulesBtn[rb].addEventListener("mouseover", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){
+          rulesIcon[ri].style.fill = 'white';
+          rulesIcon[ri].style.transition = "0.1s";
+        }   
+      });
+      rulesBtn[rb].addEventListener("mouseout", (event) => {
+        for (var ri = themeIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = '#388BFF';
+        }
+      });
+    }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#dark';
       themeIcon[ti].style.fill = '#388BFF';
       themeIcon[ti].style.transition = "2.5s";
+      body.style.backgroundColor = 'gray';
+
+      
+    }
+     for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
+      rulesBtn[rb].style.fill = '#388BFF';
+      rulesBtn[rb].style.transition = "2.5s";
     }
     body.style.backgroundColor = '#000C17'
     body.style.transition = "2.5s";
@@ -332,7 +397,7 @@ function theme() {
 var main = document.querySelector('.main');
 var rulesHeader = document.querySelectorAll('.mobile-game__header');
 
-var rulesBtn = document.querySelectorAll('.rules-btn');
+
 var rulesSection = document.querySelector('.rules');
 var rulesHide = true;
 
@@ -359,11 +424,12 @@ rulesBtn[rb].addEventListener( 'click', function() {
       main.style.maxWidth = "95%";
       main.style.gridTemplateColumns = "1fr";
       }
-      else {
-        main.style.maxWidth = "350px";
-    main.style.gridTemplateColumns = "1fr";
-      }
-    rulesSection.classList.add('visually-hidden');
+    else {
+      main.style.maxWidth = "350px";
+      main.style.gridTemplateColumns = "1fr";
+      rulesSection.classList.add('visually-hidden');
+    }
+    
     
     rulesHide = true;
     return
@@ -400,7 +466,7 @@ rulesBtn[rb].addEventListener("touchend", () =>{
 // });
 
 if (window.matchMedia('(min-width: 600px)').matches) {
-  buttonTheme[0].classList.add
+
   rulesBtn[0].classList.add('visually-hidden');
   buttonTheme[0].classList.add('visually-hidden');
   rulesHeader[0].style.justifyContent = 'center';
