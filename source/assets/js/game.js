@@ -173,7 +173,19 @@ function theme() {
           rulesIcon[ri].style.fill = 'gray';
         }
       });
+      rulesBtn[rb].addEventListener("touchstart", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = 'white';
+        }
+      });
+      rulesBtn[rb].addEventListener("touchend", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = 'gray';
+         
+        }
+      });
     }
+    
     for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
       rulesIcon[ri].style.fill = 'gray';
       rulesIcon[ri].style.transition = "2.5s";
@@ -302,7 +314,20 @@ function theme() {
           rulesIcon[ri].style.fill = '#388BFF';
         }
       });
+      rulesBtn[rb].addEventListener("touchstart", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = 'white';
+        }
+      });
+      rulesBtn[rb].addEventListener("touchend", (event) => {
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+          rulesIcon[ri].style.fill = '#388BFF';
+         
+        }
+      });
     }
+    
+    
     for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
       rulesIcon[ri].style.fill = '#388BFF';
       rulesIcon[ri].style.transition = "0.5s";
@@ -482,9 +507,10 @@ rulesBtn[rb].addEventListener( 'click', function() {
 for (var rb = rulesBtn.length - 1; rb >= 0; rb--){  
 rulesBtn[rb].addEventListener("touchend", () =>{
   main.classList.toggle('flipped');
-  for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
-    rulesIcon[ri].style.fill = '#388BFF';
-  }
+  // for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+  //   rulesIcon[ri].style.fill = 'red';
+   
+  // }
   
  
 });
