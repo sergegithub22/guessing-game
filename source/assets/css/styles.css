@@ -137,7 +137,7 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 60px;
-  margin-top: 60px;
+  margin-top: 150px;
   max-width: 350px;
   margin-left: auto;
   margin-right: auto;
@@ -153,6 +153,7 @@ body {
 
 .desc_content {
   padding: 10px;
+  padding-top: 0px;
 }
 
 .game {
@@ -165,6 +166,7 @@ body {
 .game-items {
   display: grid;
   grid-gap: 30px;
+  margin-top: 15px;
 }
 
 .game__item {
@@ -353,79 +355,38 @@ body {
   fill: white;
 }
 
-@media (min-width: 1950px) {
-  .main {
-    max-width: 600px;
-  }
-}
-@media (max-width: 1570px) and (min-width: 1180px) {
-  .main {
-    max-width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    margin-top: 40px;
-  }
-  .about {
-    display: grid;
-    grid-area: auto;
-    padding: 20px;
-  }
-  .about__header {
-    grid-area: 1/1/1/3;
-  }
-}
-@media (max-width: 1179px) and (min-width: 719px) {
-  .main {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    margin-top: 40px;
-  }
-  .game-items {
-    grid-gap: 20px;
-  }
-  .game__item {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-  .game__img {
+@media (max-width: 1000px) and (min-width: 599px) {
+  .header {
     width: 100%;
-    height: 100%;
+    grid-template-columns: 1fr 2fr 1fr;
   }
-  .game__links {
-    grid-gap: 10px;
+  .header__hi {
+    padding: 10px;
+    font-size: 17px;
   }
-  .about {
-    grid-area: auto;
-    padding: 20px;
-  }
-}
-@media (max-width: 720px) and (min-width: 499px) {
   .header__description {
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
+    font-size: 14px;
   }
   .main {
-    max-width: 80%;
+    max-width: 55%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    margin-top: 40px;
+    margin-top: 15px;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
   }
-  .info {
-    height: 150px;
+  .game {
+    grid-template-rows: 1fr;
+    order: 1;
+    padding: 20px;
   }
   .game-items {
     grid-gap: 20px;
@@ -433,6 +394,7 @@ body {
   .game__item {
     grid-template-columns: 1fr;
     padding: 10px;
+    padding-top: 0px;
   }
   .game__links {
     grid-gap: 10px;
@@ -443,6 +405,258 @@ body {
   }
   .text {
     font-size: 18px;
+  }
+  .rules {
+    padding: 20px;
+  }
+  .rules {
+    position: absolute;
+    font-family: "FiraSansExtraCondensed", Sans-Serif;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 10px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: perspective(500px) rotateY(180deg);
+  }
+  .about {
+    grid-area: auto;
+    padding: 0px;
+  }
+  .desc_content {
+    padding: 5px;
+    padding-top: 0;
+  }
+  .mobile-game {
+    position: absolute;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px gray;
+    padding: 7px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .flipped {
+    transform: perspective(900px) rotateY(180deg);
+  }
+  .mobile-main-input {
+    width: 100%;
+    font-family: "Goldman", Sans-Serif;
+    padding: 5px;
+    background-color: lightgrey;
+    border: 3px solid gray;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    transition-property: box-shadow, border, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    font-size: 30px;
+  }
+  .mobile-main-input:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .button-number {
+    margin: 5px;
+    width: 79.3px;
+    height: 50px;
+    font-family: "Goldman", Sans-Serif;
+    background-color: lightgray;
+    border: 3px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    padding: 0px;
+    font-size: 20px;
+  }
+  .button-number:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .button-enter, .button-del {
+    margin: 5px;
+    font-family: "Goldman", Sans-Serif;
+    background-color: lightgray;
+    border: 3px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    padding: 0px;
+    width: 79.3px;
+    height: 50px;
+    font-size: 12px;
+  }
+  .button-enter:active, .button-del:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .info {
+    height: 100px;
+    font-size: 20px;
+  }
+  .counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
+    font-family: "Orbitron", Sans-Serif;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .counter-header-text {
+    font-size: 20px;
+  }
+}
+@media (max-width: 600px) and (min-width: 499px) {
+  .header {
+    width: 100%;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .header__hi {
+    padding: 10px;
+    font-size: 17px;
+  }
+  .header__description {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+  }
+  .main {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    margin-top: 15px;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+  }
+  .game {
+    grid-template-rows: 1fr;
+    order: 1;
+    padding: 20px;
+  }
+  .game-items {
+    grid-gap: 20px;
+  }
+  .game__item {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    padding-top: 0px;
+  }
+  .game__links {
+    grid-gap: 10px;
+  }
+  .about {
+    grid-area: auto;
+    padding: 20px;
+  }
+  .text {
+    font-size: 18px;
+  }
+  .rules {
+    padding: 20px;
+  }
+  .rules {
+    position: absolute;
+    font-family: "FiraSansExtraCondensed", Sans-Serif;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 10px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: perspective(500px) rotateY(180deg);
+  }
+  .about {
+    grid-area: auto;
+    padding: 0px;
+  }
+  .desc_content {
+    padding: 5px;
+    padding-top: 0;
+  }
+  .mobile-game {
+    position: absolute;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7px gray;
+    padding: 7px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .flipped {
+    transform: perspective(900px) rotateY(180deg);
+  }
+  .mobile-main-input {
+    width: 100%;
+    font-family: "Goldman", Sans-Serif;
+    padding: 5px;
+    background-color: lightgrey;
+    border: 3px solid gray;
+    border-radius: 15px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    transition-property: box-shadow, border, color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    font-size: 30px;
+  }
+  .mobile-main-input:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .button-number {
+    margin: 5px;
+    width: 79.3px;
+    height: 50px;
+    font-family: "Goldman", Sans-Serif;
+    background-color: lightgray;
+    border: 3px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    padding: 0px;
+    font-size: 20px;
+  }
+  .button-number:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .button-enter, .button-del {
+    margin: 5px;
+    font-family: "Goldman", Sans-Serif;
+    background-color: lightgray;
+    border: 3px solid gray;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px gray;
+    color: black;
+    padding: 0px;
+    width: 79.3px;
+    height: 50px;
+    font-size: 12px;
+  }
+  .button-enter:active, .button-del:active {
+    color: white;
+    border: 3px solid white;
+  }
+  .info {
+    height: 100px;
+    font-size: 20px;
+  }
+  .counter-score, .counter-percent, .counter-quantity, .counter-total-quantity {
+    font-family: "Orbitron", Sans-Serif;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  .counter-header-text {
+    font-size: 20px;
   }
 }
 @media (max-width: 500px) {
@@ -504,7 +718,7 @@ body {
     font-family: "FiraSansExtraCondensed", Sans-Serif;
     font-size: 15px;
     font-weight: 900;
-    padding: 20px;
+    padding: 10px;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -516,6 +730,7 @@ body {
   }
   .desc_content {
     padding: 5px;
+    padding-top: 0;
   }
   .mobile-game {
     position: absolute;

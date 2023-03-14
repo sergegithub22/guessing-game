@@ -13,6 +13,8 @@ var miss = 0
 var clearTrig = 0
 var buttonTheme = document.querySelectorAll(".theme-btn")
 var rulesBtn = document.querySelectorAll('.rules-btn');
+var themeIcon = document.querySelectorAll(".icon-theme use");
+var rulesIcon = document.querySelectorAll(".icon-rules use");
 var newGame
 var AttemptsLeft
 
@@ -139,8 +141,7 @@ function theme() {
   var countersHeaderText = document.querySelectorAll(".counter-header-text");
   var countersText = document.querySelectorAll(".text--violet");
   var markedText = document.querySelectorAll(".text--marked");
-  var themeIcon = document.querySelectorAll(".icon-theme use");
-  var rulesIcon = document.querySelectorAll(".icon-rules use");
+ 
 
   
   console.log(themeIcon[0].attributes[0].value)
@@ -167,10 +168,14 @@ function theme() {
         }   
       });
       rulesBtn[rb].addEventListener("mouseout", (event) => {
-        for (var ri = themeIcon.length - 1; ri >= 0; ri--){  
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
           rulesIcon[ri].style.fill = 'gray';
         }
       });
+    }
+    for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+      rulesIcon[ri].style.fill = 'gray';
+      rulesIcon[ri].style.transition = "2.5s";
     }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#light';
@@ -180,7 +185,7 @@ function theme() {
     }
     for (var rb = rulesBtn.length - 1; rb >= 0; rb--){
       rulesBtn[rb].style.fill = 'gray';
-      rulesBtn[rb].style.transition = "2.5s";
+      rulesBtn[rb].style.transition = "0.5s";
     }
     
     body.style.backgroundColor = 'lightgray';
@@ -288,10 +293,14 @@ function theme() {
         }   
       });
       rulesBtn[rb].addEventListener("mouseout", (event) => {
-        for (var ri = themeIcon.length - 1; ri >= 0; ri--){  
+        for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
           rulesIcon[ri].style.fill = '#388BFF';
         }
       });
+    }
+    for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+      rulesIcon[ri].style.fill = '#388BFF';
+      rulesIcon[ri].style.transition = "0.5s";
     }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#dark';
@@ -388,12 +397,17 @@ function theme() {
         event.currentTarget.style.borderColor = '#002252';  
       });     
     }
+    rulesBtn[rb].addEventListener("touchend", (event) => {
+      for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+        rulesIcon[ri].style.fill = '#388BFF';
+      }
+    });
     buttonTheme[0].id = 'dark'
   }
 }
   
 
-// var card = document.querySelector('#set_n_desc');
+
 var main = document.querySelector('.main');
 var rulesHeader = document.querySelectorAll('.mobile-game__header');
 
@@ -404,110 +418,90 @@ var rulesHide = true;
 
 for (var rb = rulesBtn.length - 1; rb >= 0; rb--){ 
 rulesBtn[rb].addEventListener( 'click', function() {
-  console.log(rulesHide)
+  console.log(rulesIcon)
   if (rulesHide === true){
-    if (window.matchMedia('(max-width: 600px)').matches) {
-    main.style.maxWidth = "95%";
-    main.style.gridTemplateColumns = "1fr";
+    switch(true){
+      case (window.matchMedia('(min-width: 1000px)').matches):
+        main.style.maxWidth = "850px";
+        main.style.gridTemplateColumns = "350px auto";
+        break;
+      case (window.matchMedia('(max-width: 1000px) and (min-width: 599px)').matches):
+        main.style.maxWidth = "55%";
+        main.style.gridTemplateColumns = "1fr";
+        break; 
+      case (window.matchMedia('(max-width: 600px) and (min-width: 499px)').matches):
+        main.style.maxWidth = "85%";
+        main.style.gridTemplateColumns = "1fr";
+        break;
+      case (window.matchMedia('(max-width: 500px)').matches):
+        main.style.maxWidth = "95%";
+        main.style.gridTemplateColumns = "1fr";
+        break;
+      default:
+        break;
     }
-    else {
-      main.style.maxWidth = "950px";
-    main.style.gridTemplateColumns = "1fr 1.5fr";
-    }
-    
+
     rulesSection.classList.remove('visually-hidden');
     rulesHide = false;
     return
   }
   if (rulesHide === false){
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      main.style.maxWidth = "95%";
-      main.style.gridTemplateColumns = "1fr";
-      }
-    else {
-      main.style.maxWidth = "350px";
-      main.style.gridTemplateColumns = "1fr";
-      rulesSection.classList.add('visually-hidden');
+
+    switch(true){
+      case (window.matchMedia('(min-width: 1000px)').matches):
+        main.style.maxWidth = "350px";
+        main.style.gridTemplateColumns = "1fr";
+        rulesSection.classList.add('visually-hidden');
+        break;
+      case (window.matchMedia('(max-width: 1000px) and (min-width: 599px)').matches):
+        main.style.maxWidth = "55%";
+        main.style.gridTemplateColumns = "1fr";
+        break; 
+      case (window.matchMedia('(max-width: 600px) and (min-width: 499px)').matches):
+        main.style.maxWidth = "85%";
+        main.style.gridTemplateColumns = "1fr";
+        break;
+      case (window.matchMedia('(max-width: 500px)').matches):
+        main.style.maxWidth = "95%";
+        main.style.gridTemplateColumns = "1fr";
+        break;
+      default:
+        break;
     }
-    
-    
+
     rulesHide = true;
     return
   }
   
 });
 }
-
-
-// rulesBtn.addEventListener( 'click', function() {
-//   main.classList.toggle('flipped');
  
-  
-
-// });
-// rulesBtn.addEventListener("touchstart", (event) =>{
-//   main.classList.toggle('flipped');
-  
-
-// });   
 for (var rb = rulesBtn.length - 1; rb >= 0; rb--){  
 rulesBtn[rb].addEventListener("touchend", () =>{
   main.classList.toggle('flipped');
  
 });
 }
-// buttonTheme.addEventListener("touchstart", (event) =>{
-//   buttonTheme.style.color = "white";
 
-// });     
-// buttonTheme.addEventListener("touchend", () =>{
 
-//   buttonTheme.style.color = "#8438FF";
-// });
-
-if (window.matchMedia('(min-width: 600px)').matches) {
+if (window.matchMedia('(min-width: 1000px)').matches) {
 
   rulesBtn[0].classList.add('visually-hidden');
   buttonTheme[0].classList.add('visually-hidden');
   rulesHeader[0].style.justifyContent = 'center';
 
-  
-
-
   main.style.transition = "0.05s";
-  // card.classList.add('visually-hidden');
   mainHeader.style.border = '0px'
   mainHeader.style.boxShadow = 'none'
   
 } 
-if (window.matchMedia('(max-width: 600px)').matches) {
+if (window.matchMedia('(max-width: 1000px)').matches) {
   rulesSection.classList.remove('visually-hidden')
   main.style.transition = "1s";
  
   
 } 
 
-
-
-
-
-//$( ".sections__header" ).click(function() {
-//  $( ".rules" ).animate({
-//    
-//  }, 300, function() {
-//    $( ".rules" ).addClass("visually-hidden")
-//  } );
-//});
-
-
-
-
-
-
-
-//$( ".sections__header" ).click(function() {
-//  $( ".rules" ).slideToggle( "slow" );
-//});
 
 
 
