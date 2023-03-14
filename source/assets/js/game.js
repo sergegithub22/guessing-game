@@ -15,6 +15,7 @@ var buttonTheme = document.querySelectorAll(".theme-btn")
 var rulesBtn = document.querySelectorAll('.rules-btn');
 var themeIcon = document.querySelectorAll(".icon-theme use");
 var rulesIcon = document.querySelectorAll(".icon-rules use");
+var btnScreenBoardInRules = document.querySelectorAll(".bnt-scr-board-in-rules");
 var newGame
 var AttemptsLeft
 
@@ -177,6 +178,10 @@ function theme() {
       rulesIcon[ri].style.fill = 'gray';
       rulesIcon[ri].style.transition = "2.5s";
     }
+    for (var bsb = btnScreenBoardInRules.length - 1; bsb >= 0; bsb--){  
+      btnScreenBoardInRules[bsb].style.fill = 'black';
+      btnScreenBoardInRules[bsb].style.transition = "2.5s";
+    }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#light';
       themeIcon[ti].style.fill = 'gray';
@@ -302,6 +307,10 @@ function theme() {
       rulesIcon[ri].style.fill = '#388BFF';
       rulesIcon[ri].style.transition = "0.5s";
     }
+    for (var bsb = btnScreenBoardInRules.length - 1; bsb >= 0; bsb--){  
+      btnScreenBoardInRules[bsb].style.fill = '#388BFF';
+      btnScreenBoardInRules[bsb].style.transition = "2.5s";
+    }
     for (var ti = themeIcon.length - 1; ti >= 0; ti--){
       themeIcon[ti].attributes[0].value = 'assets/img/sprite.svg#dark';
       themeIcon[ti].style.fill = '#388BFF';
@@ -397,13 +406,11 @@ function theme() {
         event.currentTarget.style.borderColor = '#002252';  
       });     
     }
-    
     buttonTheme[0].id = 'dark'
   }
 }
   
 
-// var card = document.querySelector('#set_n_desc');
 var main = document.querySelector('.main');
 var rulesHeader = document.querySelectorAll('.mobile-game__header');
 
@@ -437,18 +444,6 @@ rulesBtn[rb].addEventListener( 'click', function() {
         break;
     }
 
-    // if (window.matchMedia('(max-width: 1000px) and (min-width: 599px)').matches) {
-    //   main.style.maxWidth = "55%";
-    //   main.style.gridTemplateColumns = "1fr";
-     
-    // }
-    // else {
-    //   main.style.maxWidth = "850px";
-    //   main.style.gridTemplateColumns = "350px auto";
-      
-      
-    // }
-    
     rulesSection.classList.remove('visually-hidden');
     rulesHide = false;
     return
@@ -477,27 +472,6 @@ rulesBtn[rb].addEventListener( 'click', function() {
         break;
     }
 
-
-
-
-
-
-    // if (window.matchMedia('(max-width: 1000px) and (min-width: 599px)').matches) {
-    //   main.style.maxWidth = "55%";
-    //   main.style.gridTemplateColumns = "1fr";
-      
-    //   }
-    // else {
-      
-    //   main.style.maxWidth = "350px";
-    //   main.style.gridTemplateColumns = "1fr";
-      
-    //   rulesSection.classList.add('visually-hidden');
-      
-      
-    // }
-    
-    
     rulesHide = true;
     return
   }
@@ -505,44 +479,24 @@ rulesBtn[rb].addEventListener( 'click', function() {
 });
 }
 
-
-// rulesBtn.addEventListener( 'click', function() {
-//   main.classList.toggle('flipped');
- 
-  
-
-// });
-// rulesBtn.addEventListener("touchstart", (event) =>{
-//   main.classList.toggle('flipped');
-  
-
-// });   
 for (var rb = rulesBtn.length - 1; rb >= 0; rb--){  
 rulesBtn[rb].addEventListener("touchend", () =>{
   main.classList.toggle('flipped');
+  for (var ri = rulesIcon.length - 1; ri >= 0; ri--){  
+    rulesIcon[ri].style.fill = '#388BFF';
+  }
+  
  
 });
 }
-// buttonTheme.addEventListener("touchstart", (event) =>{
-//   buttonTheme.style.color = "white";
-
-// });     
-// buttonTheme.addEventListener("touchend", () =>{
-
-//   buttonTheme.style.color = "#8438FF";
-// });
 
 if (window.matchMedia('(min-width: 1000px)').matches) {
 
   rulesBtn[0].classList.add('visually-hidden');
   buttonTheme[0].classList.add('visually-hidden');
   rulesHeader[0].style.justifyContent = 'center';
-
-  
-
-
   main.style.transition = "0.05s";
-  // card.classList.add('visually-hidden');
+
   mainHeader.style.border = '0px'
   mainHeader.style.boxShadow = 'none'
   
@@ -553,29 +507,6 @@ if (window.matchMedia('(max-width: 1000px)').matches) {
  
   
 } 
-
-
-
-
-
-//$( ".sections__header" ).click(function() {
-//  $( ".rules" ).animate({
-//    
-//  }, 300, function() {
-//    $( ".rules" ).addClass("visually-hidden")
-//  } );
-//});
-
-
-
-
-
-
-
-//$( ".sections__header" ).click(function() {
-//  $( ".rules" ).slideToggle( "slow" );
-//});
-
 
 
 
