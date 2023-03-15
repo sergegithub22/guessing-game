@@ -28,7 +28,7 @@ for (var i = keyBoardsPull.length - 1; i >= 0; i--) {
 for (var bt = buttonTheme.length - 1; bt >= 0; bt--){  
   buttonTheme[bt].addEventListener("click", theme);
   }
-console.log(buttonTheme)
+
 function game() {
   if (newGame === 1) {
     start()
@@ -145,7 +145,7 @@ function theme() {
  
 
   
-  console.log(themeIcon[0].attributes[0].value)
+
   
   if (buttonTheme[0].id === 'dark'){
     for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
@@ -446,7 +446,6 @@ var rulesHide = true;
 
 for (var rb = rulesBtn.length - 1; rb >= 0; rb--){ 
 rulesBtn[rb].addEventListener( 'click', function() {
-  console.log(rulesIcon)
   if (rulesHide === true){
     switch(true){
       case (window.matchMedia('(min-width: 1000px)').matches):
