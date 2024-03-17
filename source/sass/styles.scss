@@ -788,12 +788,18 @@ font-weight: 900;
     border: 3px solid white;
     }
   }
+  .game__numbers-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 7px;
+  }
   .button-number {
   margin: 5px;
-  width: 79.3px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   @include mobile_buttons_style;
-  padding: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   font-size: 20px;
   &:active {
     color: white;
@@ -803,9 +809,10 @@ font-weight: 900;
 .button-enter, .button-del {
   margin: 5px;
   @include mobile_buttons_style;
-  padding: 0px;
-  width: 79.3px;
-  height: 50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 100%;
+  height: 100%;
   font-size: 12px;
   &:active {
     color: white;
