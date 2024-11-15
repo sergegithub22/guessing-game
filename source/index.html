@@ -18,7 +18,7 @@
         <!-- <p class="text--blue"><button class="button-settings" id="set_n_desc"> description/settings</button></p> -->
       </section>
       <section class="header__right">
-        <span class="ver">&#945;</span>
+        <span class="ver">&#946; v0.1.1</span>
       </section>
     </header>
     <main class="main">
@@ -54,6 +54,17 @@
             <p class=" text--blue ">You have a 30 attempts to guess. For 0 attempts new game will starts</p>
             <p class=" text--blue ">In the information field you can see current information; rnd - random number</p>
             <p class=" text--blue "><span class=" text--marked ">Attempts</span> - how much attempts is left.<br><span class=" text--marked ">Guessing</span> - guessing percents</p>
+            
+            <p class=" text--blue ">
+              <span class="text--marked font900">Full statistic (button "Full stat"):</span><br>
+              <span class=" text--marked ">Games finished</span> - How much game was finished (spend 30 attepts) <br>
+              <span class=" text--marked ">Total attempts</span> - Attempts for all time<br>
+              <span class=" text--marked ">Total guesses</span> - Guesses for all time<br>
+              <span class=" text--marked ">Total misses</span> - Misses for all time<br>
+              <span class=" text--marked ">Max game result</span> - Max result which game finished<br>
+              <span class=" text--marked ">Min game result</span> - Min result which game finished<br>
+              <span class=" text--marked ">Averenge game result</span> - Averenge  result for all games<br>
+            </p>
             <p class=" text--blue "><span class=" text--marked font900">Themes.</span> You can set theme would you like: light or dark, by click to  
               <svg class="icon-theme" height="15" width="15" viewBox="0 0 16 16">
                 <use xlink:href="assets/img/sprite.svg#light"></use>
@@ -95,8 +106,12 @@
                 <span class="counter-total-quantity text--violet font900">0</span>
               </div>
               <div class="guess-percents">
-                <span class="counter-header-text">Guesses</span>
+                <span class="counter-header-text">Current game</span>
                 <span class="counter-percent text--violet font900"></span>
+              </div>
+              <div class="more-stat">
+                <button class="button-keyboard button-stat" id="fullstatbtn">Full stat</button>
+               
               </div>
             </section>
               <form>
@@ -133,7 +148,51 @@
       
     </main>
   </section>
-</div>    
+</div>   
+<!-- Modal -->
+<section class=" full-stat" id="fullstatsection">
+  <section class="management-chng-vals__content" id="fullstatcontent">
+    <div>
+      
+        
+        <h2 class="sections__header">Full statistic</h2>
+        
+        
+        <div class="full-stat-element">
+          <span class="counter-header-text">Games finished</span>
+          <span class="counter-total-quantity text--violet font900" id="gamesfinished">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Total attempts</span>
+          <span class="counter-total-quantity text--violet font900" id="totalattempts">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Total guesses</span>
+          <span class="counter-percent text--violet font900" id="totalguesses">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Total misses</span>
+          <span class="counter-total-quantity text--violet font900" id="totalmisses">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Max game result</span>
+          <span class="counter-percent text--violet font900" id="maxresult">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Min game result</span>
+          <span class="counter-total-quantity text--violet font900" id="minresult">0</span>
+        </div>
+        <div class="full-stat-element">
+          <span class="counter-header-text">Average game result</span>
+          <span class="counter-percent text--violet font900" id="avrresult">0</span>
+        </div>
+        <div class="full-stat-element">
+          <button class="button-keyboard button-reset" id="resetstatbtn">Reset</button>
+        </div>
+      
+    </div>
+	</section>
+</section> 
 </body>
 
  <script type="text/javascript" src="assets/js/game.js"></script>

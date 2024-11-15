@@ -1,27 +1,54 @@
 var mobileInputNumber = document.querySelector(".mobile-main-input");
+var sectionGameItem = document.querySelector(".mobile-game");
 var resultArea = document.querySelector(".info");
 var totalTryesQuantity = document.querySelector(".counter-total-quantity");
 var percentsArea = document.querySelector(".counter-percent");
 var keyBoardsPull = document.querySelectorAll(".button-keyboard");
 var mainHeader = document.querySelector(".header");
-var random = randomNumber()
-var guessesPercents = 0
-var trying = 0
-var sessionTryes = 0
-var guess = 0
-var miss = 0
-var clearTrig = 0
-var buttonTheme = document.querySelectorAll(".theme-btn")
+var random = randomNumber();
+var guessesPercents = 0;
+var trying = 0;
+var sessionTryes = 0;
+var guess = 0;
+var miss = 0;
+var clearTrig = 0;
+var buttonTheme = document.querySelectorAll(".theme-btn");
 var rulesBtn = document.querySelectorAll('.rules-btn');
 var themeIcon = document.querySelectorAll(".icon-theme use");
 var rulesIcon = document.querySelectorAll(".icon-rules use");
 var btnScreenBoardInRules = document.querySelectorAll(".bnt-scr-board-in-rules");
-var newGame
-var AttemptsLeft
+let fullStatBtn = document.querySelectorAll(".button-stat");
+let resetStatBtn = document.querySelector(".button-reset");
+let fullStatSection = document.querySelector(".full-stat");
+let fullStatContentSection = document.querySelector("#fullstatcontent");
+var newGame;
+var AttemptsLeft;
+let ArrayOfEachGameGuesses = [];
+
+let gamesFinished = document.querySelector("#gamesfinished");
+let totalAttempts = document.querySelector("#totalattempts");
+let totalGuesses = document.querySelector("#totalguesses");
+let totalMisses = document.querySelector("#totalmisses");
+let averangePer = document.querySelector("#avrresult");
+let maxPer = document.querySelector("#maxresult");
+let minPer = document.querySelector("#minresult");
 
 
-start()
+const fullStat = {
+  gamesFinished: 0,
+  totalAttempts: 0,
+  totalGuesses: 0,
+  totalMisses: 0,
+  maxResultPer: 0,
+  minResultper: 0,
+  AvrResultper: 0,
+}
 
+
+start();
+loadGame();
+displayFullResult();
+mobileInputNumber.value  = ' ';
 for (var i = keyBoardsPull.length - 1; i >= 0; i--) {  
   keyBoardsPull[i].addEventListener("click", useKeyboard);
   }
@@ -30,10 +57,14 @@ for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
   }
 
 function game() {
+  
+  
   if (newGame === 1) {
-    start()
+    
+    start();
+    
   }
-  if (clearTrig === 1){
+  if (clearTrig === 1){ //  how much tries spend to guess numeber
     sessionTryes = 0
     clearTrig = 0 
   }  
@@ -41,12 +72,26 @@ function game() {
     alert('Number must be between 1 and 10 inclusevly. Press "<--" to clear entry field')
     return
   }
+  if ((mobileInputNumber.value)=== ' '){
+    alert('Please, enter some number');
+    return
+  }
   else{
-    if (parseInt(mobileInputNumber.value) === random) {guessNumber()}
-    else {noneGuessNumber()}
-    calcPersents()
+    if (parseInt(mobileInputNumber.value) === random) {guessNumber();}
+    else {noneGuessNumber();}
+    calcPersents();
+    if(newGame === 1){
+      ArrayOfEachGameGuesses.push(guessesPercents);
+        console.log(ArrayOfEachGameGuesses);
     }
-  
+
+    }
+    fullStat.totalAttempts = ++fullStat.totalAttempts;
+  saveGame();
+  console.log(fullStat);
+  console.log(localStorage);
+  calcFullResult();
+  displayFullResult();
 }
 
 function start() {
@@ -77,16 +122,20 @@ function guessNumber() {
   
   if (AttemptsLeft === 0) {
     resultArea.value = 'You guessed.' + '\n' + 'Random number was: ' + random + '\n' + 'New game is ready'
-    newGame = 1
+    newGame = 1;
+    fullStat.gamesFinished = ++fullStat.gamesFinished;
+    
   }
-  random = randomNumber()
+  random = randomNumber();
+  fullStat.totalGuesses = ++fullStat.totalGuesses; 
 }
 
 function noneGuessNumber() {
   trying = trying + 1
   miss = miss + 1
   sessionTryes = sessionTryes + 1
-  AttemptsLeft = AttemptsLeft - 1
+  AttemptsLeft = AttemptsLeft - 1;
+  
   totalTryesQuantity.textContent  = AttemptsLeft.toString()
 
   if (AttemptsLeft === 0) {
@@ -96,7 +145,11 @@ function noneGuessNumber() {
     if (parseInt(mobileInputNumber.value) > random ) {
       resultArea.value = mobileInputNumber.value + ' Too high' + '\n' + 'Random number was: ' + random + '\n' + 'New game is ready'
     }
-    newGame = 1
+    newGame = 1;
+    fullStat.gamesFinished = ++fullStat.gamesFinished;
+
+
+
   }
   else {
     if (parseInt(mobileInputNumber.value) < random ){
@@ -107,12 +160,14 @@ function noneGuessNumber() {
     }
   }
   
-  mobileInputNumber.value = ' '
+  mobileInputNumber.value = ' ';
+  fullStat.totalMisses = ++fullStat.totalMisses;
 }
 
 function calcPersents() {
-  guessesPercents = Math.round((guess/trying)*100)
-  percentsArea.textContent = guessesPercents.toString() + '%'
+  guessesPercents = (guess/trying)*100;
+  
+  percentsArea.textContent = (guessesPercents).toFixed(1).toString() + '%';
 }
 
 function useKeyboard(evt) {
@@ -122,16 +177,107 @@ function useKeyboard(evt) {
   else if (evt.currentTarget.id === 'compare'){
     game() 
   } 
+  else if (evt.currentTarget.id === 'fullstatbtn'){
+    
+    fullStatSection.style.display = 'block';
+  } 
+
   else if (evt.currentTarget.classList.contains('button-number')) {
     mobileInputNumber.value = mobileInputNumber.value + evt.currentTarget.textContent
   }
+}
+
+fullStatSection.addEventListener ('click',  evt => {
+  fullStatSection.style.display = 'none';
+});
+fullStatContentSection.addEventListener ('click',  evt => {
+  evt.stopPropagation();
+});
+resetStatBtn.addEventListener ('click',  evt => {
+  let clearingStat = confirm("Are you really wanna del all current game statistic?");
+  if (clearingStat) {
+    localStorage.clear();
+  for (let key in fullStat) {
+    fullStat[key] = 0;
+  }
+  console.log(fullStat);
+  ArrayOfEachGameGuesses.length = 0;
+  console.log(ArrayOfEachGameGuesses);
+  displayFullResult();
+    alert("Statistic was cleared");
+} else {}
+  
+  
+  // alert('Full statistic is just has been cleared!');
+});
+
+
+function saveGame(){
+  
+  
+  localStorage.setItem('arrgameguesses', JSON.stringify(ArrayOfEachGameGuesses));
+  localStorage.setItem('stat', JSON.stringify(fullStat));
+
+}
+
+// get stored data from localStorage
+function loadGame() {
+  if(localStorage.arrgameguesses && localStorage.stat){
+    const arrgameguesses = JSON.parse(localStorage.getItem('arrgameguesses'));
+    arrgameguesses.forEach((item, indexItem) => {
+        ArrayOfEachGameGuesses[indexItem] = item;      
+    });
+    console.log(ArrayOfEachGameGuesses)
+    const stat = JSON.parse(localStorage.getItem('stat'));
+    for(let statItem in stat){
+      fullStat[statItem] = stat[statItem];
+    }
+    console.log(fullStat);
+    displayFullResult();
+  }
+  else{}
+}
+function calcFullResult(){
+  if(ArrayOfEachGameGuesses.length !== 0){
+    let {summ, counter, max, min} =  ArrayOfEachGameGuesses.reduce((accum, currentVal) =>{
+      accum.summ += currentVal;
+      accum.counter += 1; 
+      if(accum.max < currentVal){
+        accum.max = currentVal
+      }
+      if(accum.min > currentVal){
+        accum.min = currentVal
+      }
+      return  accum;
+    }, {summ: 0, counter: 0, max: 0, min: 100});
+    let averenge = summ / counter;
+    
+    fullStat.AvrResultper = (averenge).toFixed(2);
+    fullStat.maxResultPer = (max).toFixed(2);
+    fullStat.minResultper = (min).toFixed(2);
+  }
+  else{
+    fullStat.AvrResultper = 0;
+    fullStat.maxResultPer = 0;
+    fullStat.minResultper = 0;
+  }
+  
+}
+function displayFullResult(){
+  gamesFinished.textContent = fullStat.gamesFinished
+  totalAttempts.textContent = fullStat.totalAttempts;
+  totalGuesses.textContent = fullStat.totalGuesses;
+  totalMisses.textContent = fullStat.totalMisses;
+  averangePer.textContent = fullStat.AvrResultper + '%';
+  maxPer.textContent = fullStat.maxResultPer + '%';
+  minPer.textContent = fullStat.minResultper + '%';
 }
 function theme() {
   var body = document.querySelector("body");
   var sectionRules = document.querySelector(".rules");
   var sectionSettings = document.querySelector(".settings");
   var sectionGame = document.querySelector(".game__item");
-  var sectionGameItem = document.querySelector(".mobile-game");
+
   var headerHi = document.querySelector(".header__hi");
   var headerDescription = document.querySelector(".header__description");
   var buttonNumber = document.querySelectorAll(".button-keyboard");
@@ -148,6 +294,8 @@ function theme() {
 
   
   if (buttonTheme[0].id === 'dark'){
+    fullStatContentSection.classList.toggle("dark-theme");
+    fullStatSection.classList.toggle("dark-theme--full-stat");
     for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
       buttonTheme[bt].addEventListener("mouseover", (event) => {
         for (var ti = themeIcon.length - 1; ti >= 0; ti--){
@@ -289,6 +437,8 @@ function theme() {
     buttonTheme[0].id = 'light'
   }
   else if (buttonTheme[0].id === 'light') {
+    fullStatContentSection.classList.toggle("dark-theme");
+    fullStatSection.classList.toggle("dark-theme--full-stat");
     for (var bt = buttonTheme.length - 1; bt >= 0; bt--){
       buttonTheme[bt].addEventListener("mouseover", (event) => {
         for (var ti = themeIcon.length - 1; ti >= 0; ti--){
@@ -435,6 +585,9 @@ function theme() {
   }
 }
   
+function changeTheme(){
+
+}
 
 var main = document.querySelector('.main');
 var rulesHeader = document.querySelectorAll('.mobile-game__header');
@@ -451,6 +604,7 @@ rulesBtn[rb].addEventListener( 'click', function() {
       case (window.matchMedia('(min-width: 1000px)').matches):
         main.style.maxWidth = "850px";
         main.style.gridTemplateColumns = "350px auto";
+        sectionGameItem.style.height = "425px";
         break;
       case (window.matchMedia('(max-width: 1000px) and (min-width: 599px)').matches):
         main.style.maxWidth = "55%";
@@ -529,9 +683,22 @@ if (window.matchMedia('(min-width: 1000px)').matches) {
 if (window.matchMedia('(max-width: 1000px)').matches) {
   rulesSection.classList.remove('visually-hidden')
   main.style.transition = "1s";
- 
-  
 } 
 
 
+// const numbers = [10, 20, 30, 40, 50, 67];
+
+// // Сложная функция в reduce
+// const { sum, count } = numbers.reduce((accumulator, currentValue) => {
+//   accumulator.sum += currentValue;  // Добавляем текущее значение к сумме
+//   accumulator.count += 1;            // Увеличиваем счётчик элементов
+//   return accumulator;
+// }, { sum: 0, count: 0 });            // Инициализируем аккумулятор с суммой 0 и количеством 0
+
+// // Вычисляем среднее значение
+// const average = sum / count;
+
+// console.log(average); // 30
+// console.log(sum); // 30
+// console.log(count); // 30
 

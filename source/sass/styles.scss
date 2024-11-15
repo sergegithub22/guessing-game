@@ -48,6 +48,13 @@
     border: none;
   }
 }
+@mixin sec_elms_style {
+  padding: 10px;
+  // background-color: rgb(26, 26, 26);
+  border-radius: 20px;
+  // border: 2px solid #313131;
+
+}
 @font-face {
   font-family: 'Orbitron';
   font-style: normal;
@@ -110,11 +117,11 @@ body {
 }
 .ver {
   display: block;
-  line-height: 0.5;
+  line-height: 0.8;
   text-transform: none;
   padding-top: 0px;
   margin-top: 0px;
-  font-size: 22px;
+  font-size: 15px;
   color: #cc00ff;
 }
 .uppercase {
@@ -146,6 +153,7 @@ body {
   }
 }
 
+
 //TEXT =====================================================
 .text {
   font-family: 'FiraSansExtraCondensed', Sans-Serif;
@@ -166,6 +174,9 @@ body {
 }
 .font-size-20px {
   font-size: 20px;
+}
+.font-size-12px {
+  font-size: 12px;
 }
 .counter-header-text {
   font-family: 'Goldman', Sans-Serif;
@@ -285,10 +296,16 @@ body {
   font-size: 15px;
 }
 
-.guess-percents, .total-tryes-quantity  {
+.guess-percents, .total-tryes-quantity, .full-stat-element  {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+.more-stat{
+  display: flex;
+  justify-content: start;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
  
@@ -334,6 +351,26 @@ body {
     border: 3px solid #003681;
     }
   }
+  .management-chng-vals {
+    &__content {
+      @include sec_elms_style;
+      position: relative;
+      margin-top: 200px;
+      background-color: lightgray;
+      background-size: cover;
+      border: rgb(44, 44, 44) solid 1px;
+      box-shadow: 0px 0px 18px #000000;
+      // opacity: 0.2;
+      background-position: right top;
+      background-repeat: no-repeat; 
+      width: 18%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+    
+  }
+  // BUTTONS =====================================================
   .button-number {
   margin: 3px;
   width: 55px;
@@ -345,6 +382,19 @@ body {
     color: white;
     border: 3px solid white;
   }
+}
+.button-stat {
+  @include mobile_buttons_style;
+  border-radius: 7px;
+  padding: 0px;
+  font-size: 11px;
+  &:active {
+    color: white;
+    border: 3px solid white;
+  }
+  // height: 30px;
+  width: 25%;
+  margin: 0;
 }
 .button-enter, .button-del
  {
@@ -399,7 +449,19 @@ body {
 
   }
 }
-
+.button-reset {
+  @include mobile_buttons_style;
+  border-radius: 7px;
+  padding: 0px;
+  font-size: 12px;
+  &:active {
+    color: white;
+    border: 3px solid white;
+  }
+  // height: 30px;
+  width: 25%;
+  margin: 0;
+}
 
 
 @media (max-width: 1000px) and (min-width: 599px) {
@@ -505,6 +567,27 @@ body {
     color: white;
     border: 3px solid white;
     }
+  }
+  
+  .management-chng-vals {
+    &__content {
+      @include sec_elms_style;
+      position: relative;
+      max-width: 55%;
+      margin-top: 10%;
+      background-color: lightgray;
+      background-size: cover;
+      border: rgb(44, 44, 44) solid 1px;
+      box-shadow: 0px 0px 18px #000000;
+      // opacity: 0.2;
+      background-position: right top;
+      background-repeat: no-repeat; 
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+    
   }
   .button-number {
   margin: 5px;
@@ -660,7 +743,7 @@ font-weight: 900;
     }
   }
 .button-enter, .button-del {
-  margin: 5px;
+  margin: 0px;
   @include mobile_buttons_style;
   padding: 0px;
   width: 79.3px;
@@ -732,7 +815,7 @@ font-weight: 900;
   }
   .text {
     font-size: 18px;
-}
+  }
   .rules{
 
    
@@ -743,7 +826,7 @@ font-weight: 900;
     position: absolute;
     font-family: 'FiraSansExtraCondensed', Sans-Serif;
     font-size: 15px;
-    font-weight: 900;
+    // font-weight: 900;
     padding: 10px;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -788,18 +871,39 @@ font-weight: 900;
     border: 3px solid white;
     }
   }
+  .management-chng-vals {
+    &__content {
+      @include sec_elms_style;
+      position: relative;
+      margin-top: 200px;
+      background-color: lightgray;
+      background-size: cover;
+      border: rgb(44, 44, 44) solid 1px;
+      box-shadow: 0px 0px 18px #000000;
+      // opacity: 0.2;
+      background-position: right top;
+      background-repeat: no-repeat; 
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+    
+  }
   .game__numbers-section {
+    width: 100%;
+    @include marg_auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 7px;
   }
   .button-number {
-  margin: 5px;
+  margin: 0px;
   width: 100%;
   height: 100%;
   @include mobile_buttons_style;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-size: 20px;
   &:active {
     color: white;
@@ -807,7 +911,7 @@ font-weight: 900;
     }
   }
 .button-enter, .button-del {
-  margin: 5px;
+  margin: 0px;
   @include mobile_buttons_style;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -831,5 +935,36 @@ font-weight: 900;
 .counter-header-text {
   font-size: 20px;
   }
+.more-stat{
+  display: flex;
+  justify-content: start;
+  }
+.button-stat {
+  font-size: 14px;
+  height: 30px;
+  width: 25%;
+  margin: 0;
+  }
 }
- 
+//---------------------------------------------------------------------- Modal windows
+.full-stat {
+	display: none;
+	border: 0;
+	position: fixed;
+	left: 0;
+  top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+//---------------------------------------------------------------------- Dark Theme
+.dark-theme {
+	color: #cc00ff;
+	background-color: rgb(0,0,0); /* Fallback color */
+  // background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+.dark-theme--full-stat{
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
